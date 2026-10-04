@@ -1,0 +1,17 @@
+---
+const { kind = 'journey' } = Astro.props;
+---
+<div class={`data-art ${kind}`} aria-hidden="true">
+  <span class="art-label">THE BEAUTY IN THE PATTERNS</span>
+  <svg viewBox="0 0 520 360" fill="none">
+    <defs><pattern id={`grid-${kind}`} width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="currentColor" opacity=".2" /></pattern></defs>
+    <rect width="520" height="360" fill={`url(#grid-${kind})`} />
+    {kind === 'trust' ? <>{Array.from({length: 7}, (_, row) => Array.from({length: 11}, (_, col) => <circle cx={60 + col * 40} cy={60 + row * 40} r={8 + (row + col) % 4 * 2} fill={(row + col) % 3 === 0 ? '#b76d83' : '#29756e'} opacity={.25 + ((row * 3 + col) % 6) * .12} />))}</> : <>
+      <path d="M-20 270C90 270 90 65 215 65S340 290 540 160" stroke="#b76d83" stroke-width="36" opacity=".65" />
+      <path d="M-20 290C140 290 115 150 260 150S340 55 540 55" stroke="#29756e" stroke-width="20" opacity=".8" />
+      <path d="M-20 310C120 310 155 230 270 230S365 310 540 240" stroke="#d6a94f" stroke-width="12" />
+      <circle cx="215" cy="65" r="12" fill="#f9f6ef" stroke="#b76d83" stroke-width="3" /><circle cx="260" cy="150" r="9" fill="#f9f6ef" stroke="#29756e" stroke-width="3" /><circle cx="270" cy="230" r="7" fill="#f9f6ef" stroke="#d6a94f" stroke-width="3" />
+    </>}
+  </svg>
+  <span class="art-foot">CURIOSITY → PATTERNS → INSIGHT</span>
+</div>

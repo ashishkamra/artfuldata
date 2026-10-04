@@ -1,0 +1,8 @@
+---
+const { image, title, caption, alt } = Astro.props;
+const src = `${import.meta.env.BASE_URL}images/ceg/${image}.webp`;
+---
+<figure class="chart-figure">
+  <a class="chart-zoom" href={src} data-caption={title} aria-label={`View full-size chart: ${title}`}><img src={src} alt={alt} loading="lazy" /><span>View full size <span aria-hidden="true">↗</span></span></a>
+  <figcaption><strong>{title}</strong><p>{caption}</p></figcaption>
+</figure>

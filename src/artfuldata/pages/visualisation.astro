@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { tableauProjects } from '../content/projects';
+const base = import.meta.env.BASE_URL;
+---
+<Layout title="Data Visualisation" description="Selected Tableau projects by Monalisa Hota: Germany’s train delays, a journey through delays, and shades of interpersonal trust in America.">
+  <section class="page-intro"><p class="eyebrow">01 / DATA VISUALISATION</p><h1>See the data.<br /><em>Feel the story.</em></h1><p class="lead">A selection of my Tableau work—exploring visual forms beyond the ordinary, with curiosity and clarity at the centre.</p></section>
+  <section class="project-list" aria-label="Selected Tableau projects">{tableauProjects.map((project, index) => <article class="project split" id={`project-${index + 1}`}><a class="viz-preview" href={`https://public.tableau.com/views/${project.view}`}><img src={`${base}images/${project.image}`} alt={`Tableau dashboard preview: ${project.title}`} loading={index === 0 ? 'eager' : 'lazy'} width="1200" height="900" /><span>Explore the interactive dashboard ↗</span></a><div><p class="eyebrow">{project.category}</p><span class="project-number">0{index + 1}</span><h2>{project.title}</h2><p>{project.description}</p><div class="tags"><span>Tableau Public</span><span>Visual storytelling</span></div><a class="button" href={`https://public.tableau.com/views/${project.view}`}>Explore on Tableau ↗</a><details class="embed-panel"><summary>Open interactive view here</summary><p class="small">Hosted by Tableau Public. If the dashboard is slow to load or needs more space, use the Tableau link above.</p><iframe title={project.title} data-src={`https://public.tableau.com/views/${project.view}?:showVizHome=no&:embed=true&:toolbar=yes`} loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></details></div></article>)}</section>
+  <section class="banner"><div><p class="eyebrow">THERE’S MORE TO EXPLORE</p><h2>The whole <em>collection.</em></h2><p>More dashboards, experiments, and visual stories on my Tableau Public profile.</p></div><a class="button" href="https://public.tableau.com/app/profile/lisa.hota/vizzes">All Tableau projects ↗</a></section>
+  <script>
+    document.querySelectorAll<HTMLDetailsElement>('.embed-panel').forEach(panel => {
+      panel.addEventListener('toggle', () => {
+        const frame = panel.querySelector('iframe');
+        if (panel.open && frame?.dataset.src && !frame.hasAttribute('src')) frame.src = frame.dataset.src;
+      });
+    });
+  </script>
+</Layout>
