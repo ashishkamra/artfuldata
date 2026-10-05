@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test('navigation, images, and local collateral resolve on every portfolio page', async ({ page, request }) => {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
-  for (const path of ['', 'visualisation/', 'analytics/', 'ceg/', 'about/']) {
+  for (const path of ['', 'visualisation/', 'analytics/', 'ceg/', 'woodworking/', 'about/']) {
     const response = await page.goto(path);
     expect(response?.status()).toBe(200);
     await expect(page.locator('h1')).toHaveCount(1);

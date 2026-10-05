@@ -35,6 +35,8 @@ Tests run against a production build; run `npm run build` before `npm test`.
   pilot report, the LSE dissertation, and forthcoming report entries.
 - **CEG Experiment:** the original flyer and six chart visuals with an evidence-led
   narrative and accessible full-size chart viewing.
+- **Woodworking:** résumé-based introduction to the self-taught design-build practice;
+  selected pieces will be sourced from the forthcoming companion website.
 - **About & Contact:** professional background, education, skills, community work,
   and the supplied CV.
 

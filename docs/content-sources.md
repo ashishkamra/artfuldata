@@ -59,3 +59,16 @@ Bars represent unique visitors; crosses represent site sessions. Published narra
 describe patterns rather than causal effects. No raw dataset, attendance data, or
 registration outcomes were supplied. Future measurement suggestions are explicitly
 forward-looking, not claims about methods already used.
+
+## Creative woodworking
+
+Source: the résumé’s *Passion Projects as an Innovative Design-Builder* entry,
+January 2018–November 2025, Massachusetts, USA, reiterated by the owner.
+The introduction covers self-taught wooden furniture design, more than eight
+storage solutions, repurposed materials, prototyping, and iteration. Listed solution
+types are moving walls/doors, tri-fold door cabinets, pull-out units, and bookshelves.
+These are résumé-based categories, not individual project case studies.
+
+The owner’s companion woodworking website is under construction. Its URL and
+project media have not been supplied. Add selected pieces, source links, and
+photographs to `src/artfuldata/pages/woodworking.astro` once available.

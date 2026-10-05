@@ -3,7 +3,7 @@ import '../styles/global.css';
 const { title, description = 'Monalisa Hota: data analytics, creative data visualisation, and social research. Explore projects that connect evidence with human experience.' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const url = (path = '') => `${base}${path}`;
-const navigation = [['', 'Home'], ['visualisation/', 'Data Visualisation'], ['analytics/', 'Data Analytics'], ['ceg/', 'CEG Experiment'], ['about/', 'About & Contact']];
+const navigation = [['', 'Home'], ['visualisation/', 'Data Visualisation'], ['analytics/', 'Data Analytics'], ['ceg/', 'CEG Experiment'], ['woodworking/', 'Woodworking'], ['about/', 'About & Contact']];
 const current = Astro.url.pathname.replace(/\/$/, '');
 ---
 <!doctype html>
