@@ -33,19 +33,19 @@ small, .small { font-size: 14px; line-height: 1.6; color: var(--muted); }
 section { padding: 44px 0; }
 .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; }
 .hero { padding: 44px 0; }
+.hero.home-hero { padding: 18px 0 24px; }
+.home-hero > div:first-child { align-self: start; }
 .hero .lead { max-width: 550px; font-size: 19px; }
 .actions { display: flex; flex-wrap: wrap; gap: 22px; align-items: center; margin-top: 24px; }
 .button { display: inline-flex; gap: 16px; justify-content: space-between; align-items: center; padding: 12px 20px; background: var(--teal); color: white; text-decoration: none; font-size: 15px; font-weight: 500; border: 1px solid var(--teal); transition: background .2s, transform .2s; }
 .button:hover { background: #1e514b; transform: translateY(-2px); }
 .text-link { font-size: 15px; font-weight: 600; display: inline-block; }
-.hero-art { position: relative; padding: 10px 0 42px; max-width: 460px; width: 100%; justify-self: center; }
+.hero-art { position: relative; padding: 10px 0 42px; max-width: 340px; width: 100%; justify-self: center; }
 .data-art { background: #eeeae0; border-radius: 48% 48% 3px 3px; padding: 35px 0 24px; overflow: hidden; position: relative; }
 .data-art svg { display: block; width: 100%; }
 .art-label, .art-foot { font-size: 12px; letter-spacing: .08em; display: block; text-align: center; color: var(--teal); }
 .art-foot { padding-top: 8px; }
 .handwritten { position: absolute; bottom: 3px; right: 5px; font: italic 19px var(--serif); transform: rotate(-5deg); color: var(--rose); }
-.skill-strip { border-block: 1px solid var(--line); display: flex; justify-content: space-between; gap: 16px; padding: 18px 0; font-size: 14px; color: var(--muted); }
-.skill-strip span::before { content: '✳'; color: var(--rose); padding-right: 12px; }
 .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 32px; margin-bottom: 26px; }
 .section-heading h2 { margin-bottom: 0; }
 .section-heading > p { max-width: 390px; color: var(--muted); font-size: 16px; }
@@ -189,7 +189,6 @@ figcaption p { font-size: 15px; color: var(--muted); margin: 8px 0 0; }
   .work-card { padding: 25px 20px; }
   .work-card h3 { font-size: 26px; }
   .feature { padding: 28px; }
-  .skill-strip { flex-wrap: wrap; }
   .project h2 { font-size: 32px; }
   .banner { flex-wrap: wrap; }
   .site-header nav { gap: 22px; overflow-x: auto; }
@@ -210,16 +209,13 @@ figcaption p { font-size: 15px; color: var(--muted); margin: 8px 0 0; }
   .split { gap: 24px; }
   .hero { padding: 32px 0; }
   h1 { font-size: clamp(38px, 8.7vw, 48px); }
-  .hero-art { max-width: 320px; width: 100%; margin: 0 auto; padding-top: 0; }
+  .hero-art { max-width: 260px; width: 100%; margin: 0 auto; padding-top: 0; }
   .data-art { padding-top: 28px; }
   .lead, .hero .lead { font-size: 18px; }
   .section-heading { flex-direction: column; align-items: start; gap: 16px; margin-bottom: 22px; }
   .section-heading > p { max-width: none; margin: 0; }
   .work-card h3 { font-size: 28px; }
   .index { margin-bottom: 16px; }
-  .skill-strip { gap: 12px; font-size: 14px; }
-  .skill-strip span { width: calc(50% - 12px); }
-  .skill-strip span::before { padding-right: 6px; }
   .feature { padding: 24px 20px; gap: 24px; }
   .feature-image { transform: none; }
   .intro-note { text-align: left; }

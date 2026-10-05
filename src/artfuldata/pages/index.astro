@@ -4,11 +4,10 @@ import Art from '../components/Art.astro';
 const base = import.meta.env.BASE_URL;
 ---
 <Layout title="Data with a human story">
-  <section class="hero split">
+  <section class="hero home-hero split">
     <div><p class="eyebrow">DATA ANALYST · CREATIVE VISUALISER · SOCIAL RESEARCHER</p><h1>Making data<br /><em>meaningful.</em><br />Making ideas visible.</h1><p class="lead">I’m Monalisa. I connect evidence with human experience—through thoughtful analysis, creative visuals, and a curiosity about what makes our world work.</p><div class="actions"><a class="button" href={`${base}visualisation/`}>Explore my work <span>↗</span></a><a class="text-link" href={`${base}about/`}>A little about me →</a></div></div>
     <div class="hero-art"><Art /><span class="handwritten">There’s a story in every pattern.</span></div>
   </section>
-  <div class="skill-strip"><span>Evidence-led thinking</span><span>Human-centred design</span><span>Social impact</span><span>Creative problem-solving</span></div>
   <section><div class="section-heading"><div><p class="eyebrow">A FEW WAYS I SEE THE WORLD</p><h2>Where curiosity<br />becomes <em>work.</em></h2></div><p>From railway delays to community participation, I’m drawn to questions that matter to people.</p></div>
     <div class="grid portfolio-grid"><a class="work-card" href={`${base}visualisation/`}><span class="index">01 / SEE THE PATTERNS</span><h3>Data<br />Visualisation <span>↗</span></h3><p>Creative Tableau stories that turn complex information into something you can explore.</p><span class="tag">Tableau · Visual storytelling</span></a><a class="work-card" href={`${base}analytics/`}><span class="index">02 / ASK BETTER QUESTIONS</span><h3>Data<br />Analytics <span>↗</span></h3><p>Notebooks, social research, and policy analysis with evidence at their heart.</p><span class="tag">Python · Research · Analysis</span></a><a class="work-card" href={`${base}ceg/`}><span class="index">03 / CONNECT WITH PEOPLE</span><h3>Civic<br />Engagement <span>↗</span></h3><p>An outreach experiment bringing flyer design and analytical thinking together.</p><span class="tag">Design · Experiment · Community</span></a><a class="work-card woodworking-card" href={`${base}woodworking/`}><span class="index">04 / MAKE ROOM FOR IDEAS</span><h3>Creative<br />Woodworking <span>↗</span></h3><p>Self-taught furniture design and inventive storage solutions, built through repurposing, prototyping, and iteration.</p><span class="tag">Design-build · Resourcefulness · Craft</span></a></div>
   </section>
