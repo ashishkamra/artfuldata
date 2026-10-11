@@ -39,8 +39,13 @@ they do not assert unverified findings or notebook programming languages.
 - **LSE:** source `Dissertation-for sharing_CSA_monalisa.pdf`, *Reporting Child
   Sexual Abuse in India: Lessons from Developed Nations*, September 2009.
   The synopsis reflects the original dissertation, including its historical context.
-- **Akshara, BBA, and Arlington Town Report:** contributions summarised from the CV;
-  report files remain forthcoming. No document links or findings are invented.
+- **Akshara and BBA:** contributions summarised from the CV; report files remain
+  forthcoming. No document links or findings are invented.
+- **Arlington Town Survey:** source `2025 Annual Town Survey Report.pdf`, copied to
+  `public/documents/2025-town-survey.pdf`. The site repeats the CV claim (survey tool,
+  analysis, visualisation, report writing) and the report’s own scope: 3,268 responses,
+  1 January–4 March 2024. Her name is not printed in the report. The report’s summary
+  says it was prepared with Gemini, Jasper, Tableau, Excel, and Perplexity.
 
 ## CEG
 
@@ -59,6 +64,20 @@ Bars represent unique visitors; crosses represent site sessions. Published narra
 describe patterns rather than causal effects. No raw dataset, attendance data, or
 registration outcomes were supplied. Future measurement suggestions are explicitly
 forward-looking, not claims about methods already used.
+
+## Community
+
+CEG analysis and the town survey are published under Data Analytics. The community
+page repeats short cards that link back to those write-ups.
+
+Oxfam is the one sentence already used on About: repairing donated watches at an
+Oxfam shop in Düsseldorf, from September 2026.
+
+The Ugly Indian and My Name My Story have no source text in the repository. Their
+tiles are titles only. `Community.pdf` was not in the folder when this page was built.
+
+A 2006 ASER PDF is in the repo root and is not linked. The site still cites the
+2005 contribution.
 
 ## Creative woodworking
 

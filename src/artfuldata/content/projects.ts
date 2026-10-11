@@ -31,5 +31,4 @@ export const notebooks = [
 export const forthcomingReports = [
   { title: 'Akshara Foundation', label: 'LEARNING LEVELS / 2012–2013', description: 'Cleaned, coded, and analysed qualitative and quantitative student learning data for a randomised control trial using Excel; published an official report.' },
   { title: 'Bachpan Bachao Andolan', label: 'CHILD RIGHTS / 2003–2005', description: 'Monitored and reported on core national projects supporting the emancipation of child and bonded labourers, as Program Officer with the Association for Voluntary Action.' },
-  { title: 'Arlington Town Report', label: 'COMMUNITY RESEARCH / 2024–2026', description: 'Contributed to the annual town survey through survey tool development, data analysis, visualisation, and report writing with the Civic Engagement Group.' },
 ];

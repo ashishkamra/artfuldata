@@ -5,4 +5,7 @@ export default defineConfig({
   base: '/artfuldata',
   srcDir: './src/artfuldata',
   trailingSlash: 'always',
+  redirects: {
+    '/ceg': '/artfuldata/analytics/ceg/',
+  },
 });

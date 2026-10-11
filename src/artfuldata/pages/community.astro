@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Layout title="Community" description="Community work by Monalisa Hota, including the Civic Engagement Group, the Arlington town survey, and Oxfam.">
+  <section class="page-intro"><p class="eyebrow">Elsewhere</p><h1>Community</h1><p class="lead">Civic work sits beside the data practice, not in front of it. Analysis of the CEG experiment and the town survey lives under Data Analytics.</p></section>
+  <section>
+    <div class="grid analysis-tiles">
+      <a class="image-tile" href={`${base}analytics/ceg/`}><img src={`${base}images/ceg/flyer.webp`} alt="" width="1400" height="1082" /><span class="tile-copy"><h3>CEG outreach</h3><p>A short stop here. The flyer, charts, and reading of the results are in the analytics case study.</p></span></a>
+      <a class="image-tile" href={`${base}analytics/#town-survey`}><img src={`${base}images/town-survey.webp`} alt="" width="680" height="880" /><span class="tile-copy"><h3>Town survey</h3><p>Survey tool, analysis, visualisation, and report writing with the Civic Engagement Group.</p></span></a>
+      <article class="quiet-tile"><h3>The Ugly Indian</h3><p>Details to be added.</p><span class="status">Copy to be added</span></article>
+      <article class="quiet-tile"><h3>My Name My Story</h3><p>Details to be added.</p><span class="status">Copy to be added</span></article>
+      <article class="quiet-tile"><h3>Oxfam</h3><p>Repairing donated watches at an Oxfam shop in Düsseldorf, from September 2026.</p></article>
+    </div>
+  </section>
+</Layout>

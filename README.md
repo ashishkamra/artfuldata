@@ -28,21 +28,23 @@ Tests run against a production build; run `npm run build` before `npm test`.
 
 ## Site sections
 
-- **Home:** introduction, selected work, and the featured civic engagement study.
+- **Home:** visualisation first, then analytics tiles, then quieter links to
+  community and woodworking.
 - **Data Visualisation:** three selected Tableau dashboards with local previews,
   direct Tableau links, and optional click-to-load interactive views.
-- **Data Analytics:** three Kaggle notebooks, ASER 2005, the Indian Social Institute
-  pilot report, the LSE dissertation, and forthcoming report entries.
-- **CEG Experiment:** the original flyer and six chart visuals with an evidence-led
-  narrative and accessible full-size chart viewing.
+- **Data Analytics:** Kaggle notebooks, ASER 2005, the Indian Social Institute
+  pilot report, the LSE dissertation, the CEG outreach case study, the 2025
+  Arlington town survey, and forthcoming report entries.
+- **Community:** links back to the CEG and town-survey analysis, plus Oxfam.
+  The Ugly Indian and My Name My Story are title tiles until copy is supplied.
 - **Woodworking:** résumé-based introduction to the self-taught design-build practice;
   selected pieces will be sourced from the forthcoming companion website.
-- **About & Contact:** professional background, education, skills, community work,
-  and the supplied CV.
+- **About:** professional background, education, skills, and the supplied CV.
 
 ## Update content
 
 - Tableau, Kaggle, and forthcoming report records: `src/artfuldata/content/projects.ts`.
+- Town survey PDF: `public/documents/2025-town-survey.pdf`.
 - Page narratives: `src/artfuldata/pages/`.
 - Shared design: `src/artfuldata/styles/global.css` and `layouts/Layout.astro`.
 - Published images and PDFs: `public/images/` and `public/documents/`.

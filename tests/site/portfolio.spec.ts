@@ -3,11 +3,12 @@ import { test, expect } from '@playwright/test';
 test('navigation, images, and local collateral resolve on every portfolio page', async ({ page, request }) => {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
-  for (const path of ['', 'visualisation/', 'analytics/', 'ceg/', 'woodworking/', 'about/']) {
+  for (const path of ['', 'visualisation/', 'analytics/', 'analytics/ceg/', 'community/', 'woodworking/', 'about/']) {
     const response = await page.goto(path);
     expect(response?.status()).toBe(200);
     await expect(page.locator('h1')).toHaveCount(1);
-    await expect(page.locator('nav[aria-label="Main navigation"] a[aria-current="page"]')).toHaveCount(1);
+    const inMainNav = ['', 'visualisation/', 'analytics/', 'analytics/ceg/', 'about/'].includes(path);
+    await expect(page.locator('nav[aria-label="Main navigation"] a[aria-current="page"]')).toHaveCount(inMainNav ? 1 : 0);
     for (const image of await page.locator('main img:visible').all()) {
       await image.scrollIntoViewIfNeeded();
       await expect.poll(() => image.evaluate(element => element instanceof HTMLImageElement && element.complete && element.naturalWidth > 0)).toBe(true);
@@ -24,7 +25,7 @@ test('navigation, images, and local collateral resolve on every portfolio page',
 });
 
 test('CEG chart enlargement supports keyboard dismissal and restores focus', async ({ page }) => {
-  await page.goto('ceg/');
+  await page.goto('analytics/ceg/');
   const opener = page.getByRole('link', { name: 'View full-size chart: Website activity across the full period' });
   await opener.click();
   const dialog = page.getByRole('dialog');
@@ -34,6 +35,12 @@ test('CEG chart enlargement supports keyboard dismissal and restores focus', asy
   await page.keyboard.press('Escape');
   await expect(dialog).not.toBeVisible();
   await expect(opener).toBeFocused();
+});
+
+test('old CEG URL points at the analytics case study', async ({ request }) => {
+  const result = await request.get('ceg/');
+  expect(result.ok()).toBe(true);
+  expect(await result.text()).toContain('/artfuldata/analytics/ceg/');
 });
 
 test('Tableau dashboards load only when explicitly opened', async ({ page }) => {
