@@ -1,6 +1,6 @@
 # Artfuldata — Monalisa Hota’s portfolio
 
-A static, editorial-style portfolio for data analytics, creative data visualisation,
+A static personal portfolio for data analysis, data visualization,
 and social research. Built with Astro and deployed to GitHub Pages.
 
 ## Develop locally
@@ -28,26 +28,42 @@ Tests run against a production build; run `npm run build` before `npm test`.
 
 ## Site sections
 
-- **Home:** visualisation first, then analytics tiles, then quieter links to
-  community and woodworking.
-- **Data Visualisation:** three selected Tableau dashboards with local previews,
+- **Home:** a short introduction, three dashboard previews, and a compact list of
+  analysis and research projects.
+- **Data Visualization:** three selected Tableau dashboards with local previews,
   direct Tableau links, and optional click-to-load interactive views.
-- **Data Analytics:** Kaggle notebooks, ASER 2005, the Indian Social Institute
+- **Data Analysis:** Kaggle notebooks, ASER 2005, the Indian Social Institute
   pilot report, the LSE dissertation, the CEG outreach case study, the 2025
-  Arlington town survey, and forthcoming report entries.
-- **Community:** links back to the CEG and town-survey analysis, plus Oxfam.
-  The Ugly Indian and My Name My Story are title tiles until copy is supplied.
-- **Woodworking:** résumé-based introduction to the self-taught design-build practice;
-  selected pieces will be sourced from the forthcoming companion website.
+  Arlington town survey. Unfinished report entries are not displayed.
+- **Community:** civic research, refugee support, and Oxfam volunteering.
+- **Woodworking:** a short introduction to self-taught furniture and storage projects.
 - **About:** professional background, education, skills, and the supplied CV.
 
 ## Update content
+
+The top-right EN/DE switch keeps the current page and section. German pages are
+served under `/artfuldata/de/`; their copy is in `src/artfuldata/pages/de/[...page].astro`
+and project summaries are in `src/artfuldata/content/languages.ts`. Original linked
+PDFs, images, and external dashboards retain their original language.
+
+Inner pages include a Back link. It returns to the preceding portfolio page when
+available; direct visits fall back to Home (or Analysis for the CEG case study).
+
+Formatting is shared across languages in `src/artfuldata/styles/global.css`: the
+header and footer keep darker 2px rules; selected content groups use lighter 1px
+dividers. About and Woodworking rely on headings and spacing, while CEG keeps only
+two content dividers (at the overview and the chart analysis). Thin internal rules
+separate list entries without framing the entire list. Sections use 24px padding
+on desktop and 20px on mobile. Dashboard previews preserve their original
+proportions. The CEG section navigation is shared by both languages in
+`src/artfuldata/components/CaseNavigation.astro`.
 
 - Tableau, Kaggle, and forthcoming report records: `src/artfuldata/content/projects.ts`.
 - Town survey PDF: `public/documents/2025-town-survey.pdf`.
 - Page narratives: `src/artfuldata/pages/`.
 - Shared design: `src/artfuldata/styles/global.css` and `layouts/Layout.astro`.
 - Published images and PDFs: `public/images/` and `public/documents/`.
+- Link-sharing image source: `assets/social-card.svg`, rendered to `public/images/social-card.png`.
 - Add a future report PDF to `public/documents/`, then replace its forthcoming
   entry with a linked case-study section in `pages/analytics.astro`.
 - `docs/content-sources.md` documents sources, attribution, and editorial decisions.

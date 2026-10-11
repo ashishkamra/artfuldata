@@ -1,31 +1,31 @@
 export const tableauProjects = [
   {
     title: 'Snapshot of Delays: Germany’s High Speed Trains',
-    category: 'TRANSPORT / A DIFFERENT VIEW OF TIME',
-    description: 'A visual snapshot of delays on Germany’s high-speed trains. An everyday experience becomes an invitation to look more closely at the patterns.',
+    category: 'Transport',
+    description: 'A Tableau dashboard showing delays on Germany’s high-speed trains.',
     image: 'snapshot-delays.webp',
     view: 'SnapshotofDelaysGermanysHighSpeedTrains/Dashboard1',
   },
   {
     title: 'A Journey Through Delays',
-    category: 'TRANSPORT / CREATIVE VISUAL EXPLORATION',
-    description: 'A companion journey into train delays, using a flower-inspired dashboard to explore a familiar subject through an unexpected visual form.',
+    category: 'Transport',
+    description: 'A flower-shaped dashboard presenting train delay data.',
     image: 'journey-delays.webp',
     view: 'AJourneyThroughDelays/Dashboard_Flower',
   },
   {
     title: 'Shades of Trust: How Americans Trust Each Other',
-    category: 'SOCIETY / THE HUMAN SIDE OF DATA',
-    description: 'An exploration of interpersonal trust in America. A creative visual lens on how people relate to one another.',
+    category: 'Society',
+    description: 'A Tableau dashboard exploring interpersonal trust in America.',
     image: 'shades-trust.webp',
     view: 'ShadesofTrustHowAmericansTrustEachOther/DashboardATPTrustEachOther',
   },
 ];
 
 export const notebooks = [
-  { title: 'Part1Cyclistic: Google', slug: 'part1cyclistic-google', description: 'The first part of a Cyclistic analysis, created for the Google Data Analytics capstone.' },
-  { title: 'Google DA Capstone: Part2 Cyclistic', slug: 'google-da-capstone-part2-cyclistic', description: 'The second part of the Cyclistic capstone, continuing the analytical exploration.' },
-  { title: 'Diet Diary: Tracking Protein & Other Macros', slug: 'diet-diary-tracking-protein-other-macros', description: 'A self-directed notebook bringing data analysis into everyday nutrition tracking.' },
+  { title: 'Cyclistic analysis · Part 1', slug: 'part1cyclistic-google', description: 'The first part of my Google Data Analytics capstone.' },
+  { title: 'Cyclistic analysis · Part 2', slug: 'google-da-capstone-part2-cyclistic', description: 'The second part of the Cyclistic capstone analysis.' },
+  { title: 'Nutrition diary', slug: 'diet-diary-tracking-protein-other-macros', description: 'A notebook for tracking protein and other macronutrients.' },
 ];
 
 export const forthcomingReports = [

@@ -18,13 +18,14 @@ verified against Lisa Hota’s public profile on 4 October 2026:
 | A Journey Through Delays | `AJourneyThroughDelays/Dashboard_Flower` |
 | Shades of Trust: How Americans Trust Each Other | `ShadesofTrustHowAmericansTrustEachOther/DashboardATPTrustEachOther` |
 
-Descriptions are concise portfolio summaries. Decorative homepage art is original
-illustration, not a reconstruction of project data.
+Descriptions are concise portfolio summaries. The homepage uses actual dashboard
+previews, without decorative illustrations.
 
 ## Kaggle
 
-All three notebook titles and direct links were verified on the public profile:
-<https://www.kaggle.com/lisamlh/code>. Descriptions summarise their stated subjects;
+All three notebooks and direct links were verified on the public profile:
+<https://www.kaggle.com/lisamlh/code>. Display titles are shortened for readability.
+Descriptions summarise their stated subjects;
 they do not assert unverified findings or notebook programming languages.
 
 ## Research
@@ -68,13 +69,15 @@ forward-looking, not claims about methods already used.
 ## Community
 
 CEG analysis and the town survey are published under Data Analytics. The community
-page repeats short cards that link back to those write-ups.
+page links back to those write-ups and summarises the activities in short paragraphs.
 
 Oxfam is the one sentence already used on About: repairing donated watches at an
 Oxfam shop in Düsseldorf, from September 2026.
 
-The Ugly Indian and My Name My Story have no source text in the repository. Their
-tiles are titles only. `Community.pdf` was not in the folder when this page was built.
+Refugee resource coordination in 2021–2022 is described in the supplied biography.
+
+The Ugly Indian and My Name My Story have no source text in the repository, so they
+are not displayed. `Community.pdf` was not in the folder when this page was built.
 
 A 2006 ASER PDF is in the repo root and is not linked. The site still cites the
 2005 contribution.
@@ -91,3 +94,14 @@ These are résumé-based categories, not individual project case studies.
 The owner’s companion woodworking website is under construction. Its URL and
 project media have not been supplied. Add selected pieces, source links, and
 photographs to `src/artfuldata/pages/woodworking.astro` once available.
+
+## Layout and tone
+
+The site uses descriptive headings, short first-person summaries, and restrained
+styling. Unfinished report entries remain in the source records but are not displayed.
+Research limitations and attribution notes remain visible.
+
+Profile references for this direction:
+- <https://andreasuozzo.com/> — direct introduction and descriptions of contributions.
+- <https://veronikahalamkova.github.io/portfolio.html> — grouped work with short captions.
+- <https://lisacharlottemuth.com/about.html> — factual first-person biography.

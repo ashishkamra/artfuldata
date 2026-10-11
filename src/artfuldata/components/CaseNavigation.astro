@@ -1,0 +1,13 @@
+---
+const german = Astro.url.pathname.startsWith(`${import.meta.env.BASE_URL}de/`);
+const sections = [
+  ['overview', german ? 'Überblick' : 'Overview'],
+  ['outreach-periods', german ? 'Aktionszeiträume' : 'Outreach periods'],
+  ['website-activity', german ? 'Website-Aktivität' : 'Website activity'],
+  ['spring-2025', german ? 'Frühjahr 2025' : 'Spring 2025'],
+  ['autumn-2025', german ? 'Herbst 2025' : 'Autumn 2025'],
+  ['february-2026', german ? 'Februar 2026' : 'February 2026'],
+  ['limitations', german ? 'Einschränkungen' : 'Limitations'],
+];
+---
+<nav class="section-nav" aria-label={german ? 'Bereiche der Fallstudie' : 'Case study sections'}>{sections.map(([id, label]) => <a href={`#${id}`}>{label}</a>)}</nav>

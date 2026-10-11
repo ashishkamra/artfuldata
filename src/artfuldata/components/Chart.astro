@@ -1,8 +1,12 @@
 ---
+import type { ImageMetadata } from 'astro';
 const { image, title, caption, alt } = Astro.props;
+const charts = import.meta.glob<{ default: ImageMetadata }>('../../../public/images/ceg/*.webp', { eager: true });
+const { width, height } = charts[`../../../public/images/ceg/${image}.webp`].default;
 const src = `${import.meta.env.BASE_URL}images/ceg/${image}.webp`;
+const german = Astro.url.pathname.startsWith(`${import.meta.env.BASE_URL}de/`);
 ---
 <figure class="chart-figure">
-  <a class="chart-zoom" href={src} data-caption={title} aria-label={`View full-size chart: ${title}`}><img src={src} alt={alt} loading="lazy" /><span>View full size <span aria-hidden="true">↗</span></span></a>
+  <a class="chart-zoom" href={src} data-caption={title} aria-label={`${german ? 'Diagramm in voller Größe ansehen' : 'View full-size chart'}: ${title}`}><img src={src} alt={alt} width={width} height={height} loading="lazy" /><span>{german ? 'In voller Größe ansehen' : 'View full size'} <span aria-hidden="true">↗</span></span></a>
   <figcaption><strong>{title}</strong><p>{caption}</p></figcaption>
 </figure>
