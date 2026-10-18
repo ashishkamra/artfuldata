@@ -44,16 +44,16 @@ small, .small, .project-category { font-size: 14px; color: var(--muted); }
 .site-header { --menu-offset: calc(var(--space-3) + 10px); position: relative; z-index: 8; display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); padding-block: var(--space-3); border-bottom: 2px solid var(--section-line); }
 .brand { color: var(--ink); text-decoration: none; font-family: var(--serif); font-size: 26px; font-weight: 600; white-space: nowrap; }
 .site-header nav { display: flex; gap: var(--space-3); }
-.site-header nav a { color: var(--muted); text-decoration: none; font-size: 15px; display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
+.site-header nav a { color: var(--muted); text-decoration: none; font-size: 15px; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding-inline: 6px; }
 .site-header nav a:hover, .site-header nav a[aria-current] { color: var(--teal); text-decoration: underline; }
 .site-header > nav:first-of-type { margin-left: auto; }
 .site-header .language-switch { gap: 0; border: 1px solid var(--line); flex-shrink: 0; }
 .language-switch a { padding-inline: 12px; min-width: 44px; justify-content: center; }
 .language-switch a[aria-current] { background: var(--surface); font-weight: 500; }
-.primary-nav { align-items: flex-end; }
+.site-header .primary-nav { align-items: center; gap: 28px; }
 .nav-aside { font-family: var(--hand); font-size: 17px; margin-left: 4px; }
 .work-menu { position: relative; }
-.work-menu summary { display: flex; gap: 6px; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; font-size: 15px; color: var(--muted); list-style: none; }
+.work-menu summary { display: flex; gap: 6px; align-items: center; justify-content: center; min-height: 44px; padding-inline: 6px; font-size: 15px; color: var(--muted); list-style: none; }
 .work-menu summary::-webkit-details-marker { display: none; }
 .work-menu summary:hover, .work-menu summary[aria-current] { color: var(--teal); text-decoration: underline; text-underline-offset: 4px; }
 .work-dropdown { position: absolute; z-index: 9; top: calc(100% + var(--menu-offset)); left: 0; width: min(320px, calc(100vw - 24px)); background: #fffdf8; border: 1px solid var(--line); border-radius: 6px; padding: 8px; box-shadow: 0 16px 32px #29312e18; }
@@ -158,7 +158,7 @@ figcaption p { font-size: 14px; color: var(--muted); margin: var(--space-1) 0 0;
 .dialog-image img { width: 100%; min-width: 1000px; max-width: none; }
 .chart-dialog > p { margin: var(--space-2) 0 0; }
 
-footer { display: flex; justify-content: space-between; align-items: start; gap: var(--space-4); margin-top: var(--space-5); padding-block: var(--space-4); border-top: 2px solid var(--section-line); font-size: 14px; }
+footer { display: flex; justify-content: space-between; align-items: start; gap: var(--space-4); min-height: 100vh; margin-top: var(--space-5); padding-block: var(--space-4); border-top: 2px solid var(--section-line); scroll-margin-top: calc(var(--space-3) * -1); font-size: 14px; }
 footer > div:first-child { flex-shrink: 0; }
 footer small { display: block; margin-top: var(--space-1); font-size: 13px; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 0 var(--space-3); justify-content: end; }
@@ -180,7 +180,7 @@ footer small { display: block; margin-top: var(--space-1); font-size: 13px; }
 @media (max-width: 650px) {
   .site-header, main, footer { width: calc(100% - 40px); }
   .site-header { --menu-offset: calc(var(--space-1) + 10px); display: grid; grid-template-columns: 1fr auto; align-items: center; gap: var(--space-1); padding-block: var(--space-2) var(--space-1); }
-  .site-header > nav:first-of-type { grid-column: 1 / -1; grid-row: 2; margin-left: 0; width: 100%; justify-content: space-between; gap: var(--space-1); flex-wrap: wrap; }
+  .site-header > nav:first-of-type { grid-column: 1 / -1; grid-row: 2; margin-left: 0; width: 100%; justify-content: flex-start; gap: 2px 16px; flex-wrap: wrap; }
   .site-header .language-switch { grid-column: 2; grid-row: 1; }
   .site-header nav a, .work-menu summary { font-size: 13px; padding-inline: 4px; }
   .nav-aside { font-size: 15px; }

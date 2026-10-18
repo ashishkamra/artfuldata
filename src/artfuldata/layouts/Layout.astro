@@ -13,7 +13,7 @@ const url = (path = '') => `${base}${german ? 'de/' : ''}${path}`;
 const englishUrl = `${base}${pagePath ? `${pagePath}/` : ''}`;
 const germanUrl = `${base}de/${pagePath ? `${pagePath}/` : ''}`;
 const workPage = ['visualisation', 'analytics', 'analytics/ceg', 'community', 'woodworking', 'creativity', 'courses'].includes(pagePath);
-const pageTone = { visualisation: 'viz', analytics: 'research', 'analytics/ceg': 'research', community: 'community', woodworking: 'making', creativity: 'making', courses: 'courses', about: 'about' }[pagePath];
+const pageTone = { visualisation: 'viz', analytics: 'research', 'analytics/ceg': 'research', community: 'community', woodworking: 'making', creativity: 'making', courses: 'courses' }[pagePath];
 const backUrl = url(pagePath === 'analytics/ceg' ? 'analytics/' : '');
 ---
 <!doctype html>
@@ -42,7 +42,7 @@ const backUrl = url(pagePath === 'analytics/ceg' ? 'analytics/' : '');
       <nav class="primary-nav" aria-label={german ? 'Hauptnavigation' : 'Main navigation'}>
         <a href={url()} aria-current={pagePath === '' ? 'page' : undefined}>{german ? 'Start' : 'Home'}</a>
         <details class="work-menu"><summary aria-current={workPage ? 'true' : undefined}>{german ? 'Arbeit' : 'Work'} <span aria-hidden="true">⌄</span></summary><div class="work-dropdown"><a href={url('#work')}>{german ? 'Alle Bereiche' : 'All work'} <span aria-hidden="true">↘</span></a>{workCategories.map(category => <a href={url(category.path)}>{german ? category.de : category.en}</a>)}</div></details>
-        <a href={`${base}documents/monalisa-hota-cv.pdf`} aria-label={german ? 'Lebenslauf · PDF' : 'CV · PDF'}>{german ? 'Lebenslauf' : 'CV'}</a>
+        <a href={`${base}documents/monalisa-hota-cv.pdf`} target="_blank" rel="noopener noreferrer" aria-label={german ? 'Lebenslauf · PDF' : 'CV · PDF'}>{german ? 'Lebenslauf' : 'CV'}</a>
         <a href={url('books/')} aria-current={pagePath === 'books' ? 'page' : undefined}>{german ? 'Bücher' : 'Books'}<span class="nav-aside">{german ? '(Favoriten)' : '(fav)'}</span></a>
         <a href="#contact">{german ? 'Kontakt' : 'Contact'}</a>
       </nav>
