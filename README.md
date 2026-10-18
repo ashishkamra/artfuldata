@@ -1,7 +1,7 @@
 # Artfuldata — Monalisa Hota’s portfolio
 
 A static personal portfolio for data analysis, data visualization,
-and social research. Built with Astro and deployed to GitHub Pages.
+and social research. Built with Astro and deployed to Vercel.
 
 ## Develop locally
 
@@ -90,17 +90,17 @@ public profile’s published preview URLs; refresh the local images if dashboard
 Google Fonts are optional external font resources; system-font fallbacks are provided.
 Tableau is contacted only when a visitor opens an embedded dashboard or follows a link.
 
-## GitHub Pages
+## Vercel
 
-Expected URL: `https://ashishkamra.github.io/artfuldata/`.
+Expected URL: `https://artfuldata.vercel.app/`.
 
-1. In the repository’s **Settings → Pages**, set **Source** to **GitHub Actions**.
-2. Push the website changes to `main`, or trigger **Build and deploy portfolio** manually.
-3. The workflow checks, builds, browser-tests, and publishes only `dist/`.
+Push to `main` to run **Build and deploy portfolio**. The workflow checks and
+browser-tests the site, then deploys it to the `artfuldata` project on Vercel.
+Vercel serves the site from the domain root. The test build still uses the
+`/artfuldata` base so the existing browser checks stay stable.
 
-Deployment paths are configured in `astro.config.mjs`. If the repository name or
-hosting location changes, update `site` and `base` there. The sitemap and canonical
-URLs derive from those settings. No backend or credentials are required.
+The repository needs `VERCEL_TOKEN`, `VERCEL_ORG_ID`, and `VERCEL_PROJECT_ID`
+in GitHub Actions secrets.
 
 ## Original analysis archive
 
