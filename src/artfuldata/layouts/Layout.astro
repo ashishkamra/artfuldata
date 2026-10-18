@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import '../styles/pages.css';
 import { workCategories } from '../content/site';
 import LanguagePosition from '../components/LanguagePosition.astro';
 const { title, description = 'Selected data visualization, analysis, and social research projects by Monalisa Hota, based in Düsseldorf.' } = Astro.props;
@@ -12,6 +13,7 @@ const url = (path = '') => `${base}${german ? 'de/' : ''}${path}`;
 const englishUrl = `${base}${pagePath ? `${pagePath}/` : ''}`;
 const germanUrl = `${base}de/${pagePath ? `${pagePath}/` : ''}`;
 const workPage = ['visualisation', 'analytics', 'analytics/ceg', 'community', 'woodworking', 'creativity', 'courses'].includes(pagePath);
+const pageTone = { visualisation: 'viz', analytics: 'research', 'analytics/ceg': 'research', community: 'community', woodworking: 'making', creativity: 'making', courses: 'courses', books: 'books', about: 'about' }[pagePath];
 const backUrl = url(pagePath === 'analytics/ceg' ? 'analytics/' : '');
 ---
 <!doctype html>
@@ -39,14 +41,14 @@ const backUrl = url(pagePath === 'analytics/ceg' ? 'analytics/' : '');
       <a class="brand" href={url()}>Monalisa Hota</a>
       <nav class="primary-nav" aria-label={german ? 'Hauptnavigation' : 'Main navigation'}>
         <a href={url()} aria-current={pagePath === '' ? 'page' : undefined}>{german ? 'Start' : 'Home'}</a>
-        <details class="work-menu"><summary aria-current={workPage ? 'true' : undefined}>{german ? 'Arbeit' : 'Work'} <span aria-hidden="true">⌄</span></summary><div class="work-dropdown"><a href={url('#work')}>{german ? 'Alle Bereiche' : 'All work'} <span aria-hidden="true">↗</span></a>{workCategories.map(category => <a href={url(`#${category.id}`)}>{german ? category.de : category.en}</a>)}</div></details>
+        <details class="work-menu"><summary aria-current={workPage ? 'true' : undefined}>{german ? 'Arbeit' : 'Work'} <span aria-hidden="true">⌄</span></summary><div class="work-dropdown"><a href={url('#work')}>{german ? 'Alle Bereiche' : 'All work'} <span aria-hidden="true">↘</span></a>{workCategories.map(category => <a href={url(category.path)}>{german ? category.de : category.en}</a>)}</div></details>
         <a href={`${base}documents/monalisa-hota-cv.pdf`} aria-label={german ? 'Lebenslauf · PDF' : 'CV · PDF'}>{german ? 'Lebenslauf' : 'CV'}</a>
         <a href={url('books/')} aria-current={pagePath === 'books' ? 'page' : undefined}>{german ? 'Bücher' : 'Books'}<span class="nav-aside">{german ? '(Favoriten)' : '(fav)'}</span></a>
         <a href="#contact">{german ? 'Kontakt' : 'Contact'}</a>
       </nav>
       <nav class="language-switch" aria-label={german ? 'Sprache wählen' : 'Choose language'}><a href={englishUrl} lang="en" hreflang="en" aria-label="English" aria-current={!german ? 'page' : undefined}>EN</a><a href={germanUrl} lang="de" hreflang="de" aria-label="Deutsch" aria-current={german ? 'page' : undefined}>DE</a></nav>
     </header>
-    <main id="main" class:list={{ 'section-dividers': pagePath === 'analytics', 'case-study': pagePath === 'analytics/ceg' }}>{pagePath && <a class="back-link" href={backUrl} data-base={base} aria-label={german ? 'Zurück zur vorherigen Seite' : 'Back to previous page'}><span aria-hidden="true">←</span> {german ? 'Zurück' : 'Back'}</a>}<slot /></main>
+    <main id="main" class:list={{ 'section-dividers': pagePath === 'analytics', 'case-study': pagePath === 'analytics/ceg', 'inner-page': Boolean(pagePath), [`tone-${pageTone}`]: pageTone }}>{pagePath && <a class="back-link" href={backUrl} data-base={base} aria-label={german ? 'Zurück zur vorherigen Seite' : 'Back to previous page'}><span aria-hidden="true">←</span> {german ? 'Zurück' : 'Back'}</a>}<slot /></main>
     <footer id="contact"><div><p class="footer-greeting">{german ? 'Kontakt' : 'Contact'}</p><a href="mailto:monalisa.hota@gmail.com">monalisa.hota@gmail.com <span aria-hidden="true">↗</span></a><small>{german ? 'Düsseldorf, Deutschland' : 'Düsseldorf, Germany'}</small>{german && <small>Verlinkte Dokumente und Dashboards bleiben in ihrer Originalsprache.</small>}</div><div class="footer-links"><a href={url('about/')}>{german ? 'Über mich' : 'About me'}</a><a href="https://www.linkedin.com/in/youdontfoolme/">LinkedIn</a><a href="https://public.tableau.com/app/profile/lisa.hota/vizzes">Tableau</a><a href="https://www.kaggle.com/lisamlh/code">Kaggle</a></div></footer>
     <script>
       const workMenu = document.querySelector<HTMLDetailsElement>('.work-menu');

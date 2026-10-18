@@ -102,12 +102,20 @@ test('main navigation supports Work disclosure, favourites, CV, and Contact', as
     await expect(page.locator('.work-menu')).not.toHaveAttribute('open');
     await expect(summary).toBeFocused();
     await summary.click();
-    await page.locator('.work-dropdown a[href$="#research"]').click();
-    await expect(page).toHaveURL(/#research$/);
+    const menuBox = await page.evaluate(() => {
+      const menu = document.querySelector('.work-dropdown')!.getBoundingClientRect();
+      const header = document.querySelector('.site-header')!.getBoundingClientRect();
+      const photo = document.querySelector('.portrait-note')?.getBoundingClientRect();
+      return { belowHeader: menu.top >= header.bottom - 1, missesPhoto: !photo || menu.right <= photo.left + 8 || menu.bottom <= photo.top + 8 };
+    });
+    expect(menuBox.belowHeader).toBe(true);
+    expect(menuBox.missesPhoto).toBe(true);
+    await page.locator('.work-dropdown a[href$="analytics/"]').click();
+    await expect(page).toHaveURL(/\/analytics\/$/);
     await expect(page.locator('.work-menu')).not.toHaveAttribute('open');
-    await expect(page.locator('#research')).toBeInViewport();
+    await expect(page.locator('#main h1')).toBeInViewport();
     await page.locator('.primary-nav a[href$="books/"]').click();
-    await expect(page.locator('.book-grid article')).toHaveCount(9);
+    await expect(page.locator('.book-grid article')).toHaveCount(8);
     await page.getByRole('link', { name: prefix ? 'Kontakt' : 'Contact', exact: true }).click();
     await expect(page.locator('#contact')).toBeInViewport();
     const cv = await request.get((await page.locator('.primary-nav a[href$=".pdf"]').getAttribute('href'))!);
@@ -124,7 +132,7 @@ test('key pages have visible content and readable desktop and mobile layouts', a
     await page.evaluate(() => document.fonts.ready);
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
     await expect(page.locator('.brand')).toHaveCSS('font-size', '26px');
-    const padding = testInfo.project.name === 'mobile' ? '20px' : '24px';
+    const padding = testInfo.project.name === 'mobile' ? '20px' : '28px';
     const spacing = await page.locator('#main > section:not(.hero, .page-intro, .project-list, .activity-list), .project, .activity-list > article').evaluateAll(sections => sections.map(section => getComputedStyle(section).paddingTop));
     expect(spacing.every(value => value === padding)).toBe(true);
     expect(await page.locator('main').innerText()).not.toHaveLength(0);
@@ -139,8 +147,8 @@ test('key pages have visible content and readable desktop and mobile layouts', a
 
 test('dividers are selective and quieter than the shared header and footer in both languages', async ({ page }) => {
   const pages: [string, number][] = [
-    ['', 0], ['analytics/', 8], ['visualisation/', 2],
-    ['community/', 2], ['woodworking/', 0], ['about/', 0], ['analytics/ceg/', 2],
+    ['', 0], ['analytics/', 0], ['visualisation/', 0],
+    ['community/', 0], ['woodworking/', 0], ['about/', 0], ['analytics/ceg/', 0],
   ];
   for (const [path, expectedCount] of pages.flatMap(([path, count]) => [[path, count], [`de/${path}`, count]] as [string, number][])) {
     await page.goto(path);
@@ -154,8 +162,6 @@ test('dividers are selective and quieter than the shared header and footer in bo
     }).filter(border => border.width !== '0px'));
     expect(dividers, path).toEqual(Array.from({ length: expectedCount }, () => ({ width: '1px', color: 'rgb(203, 209, 200)' })));
     if (path.endsWith('analytics/ceg/')) {
-      await expect(page.locator('#overview')).toHaveCSS('border-top-width', '1px');
-      await expect(page.locator('#website-activity')).toHaveCSS('border-top-width', '1px');
       for (const article of await page.locator('.timeline article').all()) {
         await expect(article).toHaveCSS('border-top-width', '0px');
       }

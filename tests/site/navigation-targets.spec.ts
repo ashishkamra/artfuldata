@@ -15,20 +15,38 @@ for (const prefix of ['', 'de/']) {
   test.describe(german ? 'German navigation targets' : 'English navigation targets', () => {
     test.use({ contextOptions: { reducedMotion: 'reduce' } });
 
-    test('work categories and the inner-page Work menu reach the matching homepage sections', async ({ page, baseURL }) => {
-      for (const menu of ['.work-categories', '.work-dropdown']) {
-        for (const [id, title] of categories) {
-          await page.goto(menu === '.work-categories' ? prefix : `${prefix}analytics/ceg/`);
-          if (menu === '.work-dropdown') await page.locator('.work-menu summary').click();
-          const link = page.locator(`${menu} a[href$="#${id}"]`);
-          const expected = new URL(`${prefix}#${id}`, baseURL).href;
-          await expect(link).toHaveCount(1);
-          await link.click();
-          await expect(page).toHaveURL(expected);
-          const heading = page.locator(`#${id} h2`).first();
-          await expect(heading).toHaveAccessibleName(title);
-          await expect(heading).toBeInViewport();
-        }
+    test('homepage work categories scroll to the matching sections', async ({ page, baseURL }) => {
+      for (const [id, title] of categories) {
+        await page.goto(prefix);
+        const link = page.locator(`.work-categories a[href$="#${id}"]`);
+        const expected = new URL(`${prefix}#${id}`, baseURL).href;
+        await expect(link).toHaveCount(1);
+        await link.click();
+        await expect(page).toHaveURL(expected);
+        const heading = page.locator(`#${id} h2`).first();
+        await expect(heading).toHaveAccessibleName(title);
+        await expect(heading).toBeInViewport();
+      }
+    });
+
+    test('the Work menu opens the matching section page', async ({ page, baseURL }) => {
+      const pages = [
+        ['visualisation/', t('Data Visualization', 'Datenvisualisierung')],
+        ['analytics/', t('Data Analysis and Research', 'Datenanalyse und Forschung')],
+        ['creativity/', t('Problem solving & creativity', 'Problemlösen & Kreativität')],
+        ['community/', t('Community work', 'Engagement')],
+        ['courses/', t('Courses & certificates', 'Kurse & Zertifikate')],
+      ];
+      for (const [path, title] of pages) {
+        await page.goto(`${prefix}analytics/ceg/`);
+        await page.locator('.work-menu summary').click();
+        const link = page.locator(`.work-dropdown a[href$="${path}"]`);
+        await expect(link).toHaveCount(1);
+        await link.click();
+        await expect(page).toHaveURL(new URL(`${prefix}${path}`, baseURL).href);
+        const heading = page.locator('#main h1');
+        await expect(heading).toHaveAccessibleName(title);
+        await expect(heading).toBeInViewport();
       }
     });
 
@@ -47,7 +65,8 @@ for (const prefix of ['', 'de/']) {
         { selector: '.garden-card', path: 'creativity/#garden' },
         { selector: '.repurpose-card', path: 'creativity/#repurpose' },
         ...['civic', 'refugee', 'oxfam'].map((id, index) => ({ selector: `.community-links > a:nth-child(${index + 1})`, path: `community/#${id}` })),
-        { selector: '.course-card', path: 'courses/#google-data-analytics' },
+        { selector: '.course-list > a:nth-child(1)', path: 'courses/#google-data-analytics' },
+        { selector: '.course-list > a:nth-child(2)', path: 'courses/#research-methodology', title: t('Post-Graduate Certificate in Research Methodology', 'Postgraduales Zertifikat in Forschungsmethodik') },
         ...[1, 2, 3].map(index => ({ selector: `.mini-books > a:nth-child(${index})`, path: `books/#book-${index}` })),
         { selector: '.hero-copy .pill-link', path: '#work', title: t('Work & interests', 'Arbeit & Interessen') },
         { selector: '.hero-copy .text-link', path: 'about/', title: t('About me', 'Über mich') },

@@ -1,0 +1,57 @@
+body:has(.tone-viz) { background: #e9eee2; }
+body:has(.tone-research) { background: #f0e5d4; }
+body:has(.tone-community) { background: #e0ece8; }
+body:has(.tone-making) { background: #eee0d9; }
+body:has(.tone-courses) { background: #e9e5ef; }
+body:has(.tone-books) { background: #f1e9d2; }
+body:has(.tone-about) { background: #f6f1e8; }
+
+.inner-page .page-intro h1,
+.inner-page .about-hero h1 { font-size: clamp(46px, 5.2vw, 68px); letter-spacing: -.035em; line-height: 1.05; }
+.inner-page .page-intro .handwritten { display: block; margin-bottom: 8px; }
+.inner-page .section-nav { gap: 8px; margin-bottom: 8px; }
+.inner-page .section-nav a { padding: 6px 14px; border: 1px solid #e0dfd5; border-radius: 40px; background: #fffdf8; text-decoration: none; }
+.inner-page .section-nav a:hover { background: var(--ink); color: var(--paper); text-decoration: none; }
+
+.inner-page > section:not(.page-intro, .hero, .project-list, .activity-list),
+.inner-page :is(.project, .collection-panel, .activity-list article, .case-meta) {
+  background: #fffdf8;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px #e0dfd5;
+  padding: 28px;
+  margin-block: 16px;
+}
+.inner-page.section-dividers > section:not(.hero, .page-intro),
+.inner-page .project + .project,
+.inner-page .activity-list article + article,
+.inner-page .case-meta,
+.inner-page.case-study > #website-activity { border-top-width: 0; }
+.inner-page .project-list,
+.inner-page .activity-list,
+.inner-page .collection-sections { padding: 0; background: transparent; box-shadow: none; }
+.inner-page .viz-preview { display: block; padding: 16px; background: #e9ece3; border-radius: 6px; }
+.inner-page .viz-preview:hover { text-decoration: none; }
+.inner-page .research-preview,
+.inner-page .flyer-preview,
+.inner-page .feature img { border-radius: 6px; background: #f3efe4; }
+.inner-page .project-index > a { padding-inline: 4px; }
+.inner-page .about-hero { align-items: center; }
+.inner-page .about-hero .portrait { margin: 12px 8px 0 auto; padding: 12px; max-width: 280px; background: #fffdf8; border: 1px solid #e6dfd1; box-shadow: 2px 6px 20px #29312e12; transform: rotate(2.5deg); }
+.inner-page .about-hero .portrait img { aspect-ratio: 1; object-fit: cover; filter: saturate(.7); }
+.inner-page .skills-list > div,
+.inner-page .education-list article,
+.inner-page .experience-list article { padding-inline: 2px; }
+.inner-page .chart-zoom img { border-radius: 4px; }
+
+@media (max-width: 800px) {
+  .inner-page > section:not(.page-intro, .hero, .project-list, .activity-list),
+  .inner-page :is(.project, .collection-panel, .activity-list article, .case-meta) { padding: 22px 18px; }
+  .inner-page .about-hero .portrait { margin-inline: 0; max-width: 220px; }
+}
+
+@media (max-width: 650px) {
+  .inner-page .page-intro h1,
+  .inner-page .about-hero h1 { font-size: clamp(40px, 11vw, 52px); }
+  .inner-page > section:not(.page-intro, .hero, .project-list, .activity-list),
+  .inner-page :is(.project, .collection-panel, .activity-list article, .case-meta) { padding: 20px 16px; margin-block: 12px; }
+}
