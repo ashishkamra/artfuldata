@@ -1,10 +1,10 @@
-body:has(.tone-viz) { background: #e9eee2; }
-body:has(.tone-research) { background: #f0e5d4; }
-body:has(.tone-community) { background: #e0ece8; }
-body:has(.tone-making) { background: #eee0d9; }
-body:has(.tone-courses) { background: #e9e5ef; }
-body:has(.tone-books) { background: #f1e9d2; }
-body:has(.tone-about) { background: #f6f1e8; }
+body:has(.tone-viz) { background: #dde4d4; }
+body:has(.tone-research) { background: #e7d9c6; }
+body:has(.tone-community) { background: #d5e4de; }
+body:has(.tone-making) { background: #e6d5cc; }
+body:has(.tone-courses) { background: #e4d4be; }
+body:has(.tone-books) { background: #eadfc8; }
+body:has(.tone-about) { background: #efe6d8; }
 
 .inner-page .page-intro h1,
 .inner-page .about-hero h1 { font-size: clamp(46px, 5.2vw, 68px); letter-spacing: -.035em; line-height: 1.05; }
@@ -17,7 +17,7 @@ body:has(.tone-about) { background: #f6f1e8; }
 .inner-page :is(.project, .collection-panel, .activity-list article, .case-meta) {
   background: #fffdf8;
   border-radius: 8px;
-  box-shadow: 0 0 0 1px #e0dfd5;
+  box-shadow: 0 10px 28px #29312e12, 0 0 0 1px #e0dfd5;
   padding: 28px;
   margin-block: 16px;
 }
@@ -29,7 +29,7 @@ body:has(.tone-about) { background: #f6f1e8; }
 .inner-page .project-list,
 .inner-page .activity-list,
 .inner-page .collection-sections { padding: 0; background: transparent; box-shadow: none; }
-.inner-page .viz-preview { display: block; padding: 16px; background: #e9ece3; border-radius: 6px; }
+.inner-page .viz-preview { display: block; padding: 16px; background: #e4e1d4; border-radius: 6px; }
 .inner-page .viz-preview:hover { text-decoration: none; }
 .inner-page .research-preview,
 .inner-page .flyer-preview,
@@ -37,7 +37,7 @@ body:has(.tone-about) { background: #f6f1e8; }
 .inner-page .project-index > a { padding-inline: 4px; }
 .inner-page .about-hero { align-items: center; }
 .inner-page .about-hero .portrait { margin: 12px 8px 0 auto; padding: 12px; max-width: 280px; background: #fffdf8; border: 1px solid #e6dfd1; box-shadow: 2px 6px 20px #29312e12; transform: rotate(2.5deg); }
-.inner-page .about-hero .portrait img { aspect-ratio: 1; object-fit: cover; filter: saturate(.7); }
+.inner-page .about-hero .portrait img { aspect-ratio: 1; object-fit: cover; }
 .inner-page .skills-list > div,
 .inner-page .education-list article,
 .inner-page .experience-list article { padding-inline: 2px; }

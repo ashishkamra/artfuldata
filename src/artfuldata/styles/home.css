@@ -9,9 +9,9 @@
 .pill-link:hover { background: var(--ink); color: var(--paper); text-decoration: none; }
 .hero-collage { position: relative; padding: 25px 20px; }
 .portrait-note { margin: 0; padding: 13px; background: #fffdf8; box-shadow: 2px 6px 20px #29312e12; transform: rotate(4deg); border: 1px solid #e6dfd1; }
-.portrait-note img { aspect-ratio: 1; object-fit: cover; filter: saturate(.7); }
+.portrait-note img { aspect-ratio: 1; object-fit: cover; }
 .collage-spark { position: absolute; z-index: 2; right: 18px; bottom: 22px; font-family: Georgia, serif; font-size: 42px; line-height: 1; color: var(--rust); transform: rotate(12deg); pointer-events: none; }
-.work-directory { padding: 32px 28px; margin: 0 -28px 24px; background: #31574d; border-radius: 10px; scroll-margin-top: 24px; }
+.work-directory { padding: 32px 28px; margin: 0 -28px 24px; background: #1c4b46; border-radius: 10px; scroll-margin-top: 24px; }
 .home-flow .work-directory h2 { color: #fffdf8; font-size: clamp(40px, 4.2vw, 54px); margin-bottom: 26px; }
 .work-directory h2 > span { font-family: var(--hand); font-size: 36px; margin-left: 12px; }
 .work-categories { display: grid; grid-template-columns: 1.05fr 1.15fr 1.35fr 1.3fr .65fr; gap: 12px; }
@@ -25,7 +25,7 @@
 #research { --section-background: #f0e5d4; }
 #creativity { --section-background: #eee0d9; }
 #community { --section-background: #e0ece8; }
-#courses { --section-background: #e9e5ef; }
+#courses { --section-background: #e4d4be; }
 .reading-section { --section-background: #f1e9d2; }
 .home-flow .section-heading { margin-bottom: 28px; align-items: end; }
 .home-flow .section-heading .eyebrow { margin-bottom: 12px; }
@@ -34,9 +34,7 @@
 .home-flow .text-link > span { margin-left: 8px; }
 .home-flow .viz-tiles { gap: 22px; }
 .home-tile { background: #fffdf8; border: 1px solid #e0dfd5; border-radius: 5px; overflow: hidden; }
-.dashboard-mat { padding: 23px 16px; background: #e9ece3; }
-.mat-1 { background: #efe4d1; }
-.mat-2 { background: #eadfdc; }
+.dashboard-mat, .mat-1, .mat-2 { padding: 23px 16px; background: #e4e1d4; }
 .home-tile .tile-copy { display: flex; flex-direction: column; flex: 1; padding: 20px; }
 .home-tile .tile-copy h3 { font-size: 26px; min-height: 0; margin-block: 8px 12px; }
 .home-tile .tile-copy > p:not(.eyebrow) { font-size: 13px; line-height: 1.7; }
