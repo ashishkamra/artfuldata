@@ -45,6 +45,10 @@ Homepage category tiles scroll to `#visualisation`, `#research`, `#creativity`,
   dissertation. The Report Bee image is the *Reflections* Volume 1 cover.
 - Do not restore an “Edward Tufte” bookshelf entry unless the owner supplies a
   real title. “Books on information design” is not a title.
+- Book covers come from the English Wikipedia article for that exact book, and
+  only when the file is marked fair use. Originals has no Wikipedia article.
+  Irrational has no author and no matching article; do not substitute another
+  book’s cover.
 - Forthcoming report files stay out of the public pages until the file exists
   in `public/documents/`.
 

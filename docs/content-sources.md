@@ -25,8 +25,11 @@ previews, without decorative illustrations.
 
 All three notebooks and direct links were verified on the public profile:
 <https://www.kaggle.com/lisamlh/code>. Display titles are shortened for readability.
-Descriptions summarise their stated subjects;
-they do not assert unverified findings or notebook programming languages.
+The Cyclistic and nutrition descriptions use the notebooks’ own summaries: the
+2022 member and casual comparison, and the 324-day diary findings (about 1,500
+calories, 65 grams of protein met at an average of 81 grams, 30 percent of
+calories from protein usually not met). Do not add findings that are not in
+those notebooks.
 
 ## Research
 

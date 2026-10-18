@@ -41,7 +41,7 @@ export const notebooks: {
   {
     title: 'Cyclistic analysis · Part 1',
     slug: 'part1cyclistic-google',
-    description: 'The first part of my Google Data Analytics capstone.',
+    description: 'The first part of my Google Data Analytics capstone on Cyclistic, a fictional Chicago bike-rental company. I compared how annual members and casual riders used the bikes in 2022.',
     images: [{
       src: 'cyclistic-1.webp',
       alt: 'Chart of Cyclistic rides by member and casual riders across the year.',
@@ -53,7 +53,7 @@ export const notebooks: {
   {
     title: 'Cyclistic analysis · Part 2',
     slug: 'google-da-capstone-part2-cyclistic',
-    description: 'The second part of the Cyclistic capstone analysis.',
+    description: 'Casual riders are mainly summer and weekend riders. Members rent more throughout the year. Casual rentals jump from May, peak in July, and fade after September, while member rentals stay high from March and fade only after October.',
     images: [{
       src: 'cyclistic-2.webp',
       alt: 'Scatter chart of Cyclistic ride counts by start time for members and casual riders, January 2022 to January 2023.',
@@ -65,7 +65,7 @@ export const notebooks: {
   {
     title: 'Nutrition diary',
     slug: 'diet-diary-tracking-protein-other-macros',
-    description: 'A notebook for tracking protein and other macronutrients.',
+    description: 'A personal food diary covering 324 days. I checked a calorie target of about 1,500 and two protein targets: 65 grams a day, and 30 percent of calories from protein. The 65-gram target was met, at an average of 81 grams a day. The 30 percent target was not met on most days.',
     images: [
       {
         src: 'nutrition-targets.webp',
