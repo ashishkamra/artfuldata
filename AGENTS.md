@@ -38,6 +38,7 @@ Live site: <https://artfuldata.vercel.app/>. Local and CI tests still use the
 | Inner-page colour and cards | `styles/pages.css` |
 | Shared type, header, contact | `styles/global.css` |
 | Tableau and notebooks | `content/projects.ts`, `content/languages.ts` |
+| Shared bilingual notebook tiles | `components/NotebookList.astro`, `styles/global.css` |
 | Work menu destinations | `content/site.ts` `path` fields |
 | Deploy | `.github/workflows/deploy.yml`, `astro.config.mjs` |
 
@@ -68,6 +69,9 @@ the GitHub Action before deploy. Watch the new run with
   section it scrolls to.
 - Visualization tiles are one card. The image is full width; the title is
   smaller than the image. Do not put the text in a second box.
+- Homepage research images use matched frames, including portrait covers.
+  The Kaggle tile uses one Cyclistic chart, not a narrow collage. Keep this
+  treatment separate from full notebook charts; see `skills/design.md`.
 - The portrait is not desaturated. Do not add a lilac courses wash or a second
   green that does not match the link teal.
 - Contact is the footer heading. The footer is at least one viewport tall so a

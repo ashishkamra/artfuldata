@@ -45,10 +45,15 @@ Homepage category tiles scroll to `#visualisation`, `#research`, `#creativity`,
   dissertation. The Report Bee image is the *Reflections* Volume 1 cover.
 - Do not restore an “Edward Tufte” bookshelf entry unless the owner supplies a
   real title. “Books on information design” is not a title.
-- Book covers come from the English Wikipedia article for that exact book, and
-  only when the file is marked fair use. Originals has no Wikipedia article.
-  Irrational has no author and no matching article; do not substitute another
-  book’s cover.
+- Six book covers were sourced from English Wikipedia and are stored in
+  `public/images/books/`. Their paths, sizes, and source links live in
+  `content/site.ts`; shared rendering is in `Collection.astro` and `Home.astro`.
+  Preserve the source links and original-resolution thumbnails. Wikipedia's
+  fair-use rationale is specific to Wikipedia and is not a reusable license
+  or a guarantee that use on this portfolio qualifies as fair use.
+  At the time of this session, Originals had no matching Wikipedia cover.
+  Irrational has no confirmed author or exact title; ask before substituting
+  Predictably Irrational or another book.
 - Forthcoming report files stay out of the public pages until the file exists
   in `public/documents/`.
 
@@ -57,4 +62,28 @@ Homepage category tiles scroll to `#visualisation`, `#research`, `#creativity`,
 Add a PDF to `public/documents/`, then link it. Layout’s script sets
 `target="_blank"` on every `.pdf` link. Do not remove that. External Tableau
 and Kaggle links stay external; do not embed a dashboard unless the visitor
-opens it.
+  opens it.
+
+## Incoming material and image preparation
+
+New owner-supplied material goes in `incoming/photos/`, `incoming/documents/`,
+or `incoming/notes/`. Publish only the required copies under `public/images/`
+and `public/documents/`; do not commit the entire incoming folder by default.
+Keep the originals intact. Use normalized filenames and optimized WebP images.
+Apply EXIF orientation before resizing or stitching; Akshara's two photos were
+stitched side by side after orientation correction. PDF cover extraction can
+use `pdftoppm -f 1 -l 1`; its output may be numbered `-001`, not `-1`.
+
+## Sourcing Kaggle copy
+
+Use the notebook itself, not generic project copy or inferred chart findings.
+Keep English descriptions in `content/projects.ts` and matching German copy in
+`content/languages.ts`. `NotebookList.astro` renders both languages.
+
+If a plain fetch returns an empty page or only Kaggle's shell, open the public
+notebook in Playwright. Its `GetKernelViewModel` response contains
+`kernelRun.renderedOutputUrl`; fetch that rendered HTML to read the introduction,
+summary, and limitations. Those URLs are temporary: do not publish them or
+commit the API response. Keep stable `/code/lisamlh/<slug>` links on the site.
+Summarize verified notebook text concisely; the nutrition findings describe a
+personal diary, not general nutritional advice.

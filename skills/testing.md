@@ -46,6 +46,12 @@ headless-shell executable is not available here.
 - The mobile Work-menu test must wait until the menu is below the header, under
   the Work button, and on screen. A single immediate read can race the
   placement script.
+- After adding report images, check homepage-to-research anchor clicks in both
+  languages on mobile. Tall images before the text pushed the ASER heading out
+  of view; the fix was text-first mobile ordering, not weakening the test.
+- Equal image-element dimensions do not guarantee visual balance: `contain`
+  can leave landscape content tiny inside a portrait frame. Inspect screenshots
+  as well as dimensions, including at responsive breakpoints.
 
 ## CI
 
