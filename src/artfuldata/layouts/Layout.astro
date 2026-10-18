@@ -13,7 +13,7 @@ const url = (path = '') => `${base}${german ? 'de/' : ''}${path}`;
 const englishUrl = `${base}${pagePath ? `${pagePath}/` : ''}`;
 const germanUrl = `${base}de/${pagePath ? `${pagePath}/` : ''}`;
 const workPage = ['visualisation', 'analytics', 'analytics/ceg', 'community', 'woodworking', 'creativity', 'courses'].includes(pagePath);
-const pageTone = { visualisation: 'viz', analytics: 'research', 'analytics/ceg': 'research', community: 'community', woodworking: 'making', creativity: 'making', courses: 'courses', books: 'books', about: 'about' }[pagePath];
+const pageTone = { visualisation: 'viz', analytics: 'research', 'analytics/ceg': 'research', community: 'community', woodworking: 'making', creativity: 'making', courses: 'courses', about: 'about' }[pagePath];
 const backUrl = url(pagePath === 'analytics/ceg' ? 'analytics/' : '');
 ---
 <!doctype html>
@@ -59,15 +59,14 @@ const backUrl = url(pagePath === 'analytics/ceg' ? 'analytics/' : '');
         if (!workMenu?.open || !dropdown || !summary || !header) return;
         const trigger = summary.getBoundingClientRect();
         const headerBox = header.getBoundingClientRect();
-        const menuBox = workMenu.getBoundingClientRect();
         const width = Math.min(320, window.innerWidth - 24);
         const left = Math.min(Math.max(12, trigger.left), window.innerWidth - 12 - width);
-        dropdown.style.top = `${headerBox.bottom + 8 - menuBox.top}px`;
-        dropdown.style.left = `${left - menuBox.left}px`;
+        dropdown.style.left = `${left - headerBox.left}px`;
         dropdown.style.width = `${width}px`;
       };
       workMenu?.addEventListener('toggle', placeWorkMenu);
       window.addEventListener('resize', placeWorkMenu);
+      document.fonts.ready.then(placeWorkMenu);
       document.addEventListener('click', event => {
         if (event.target instanceof Node && workMenu && !workMenu.contains(event.target)) workMenu.open = false;
       });

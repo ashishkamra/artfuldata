@@ -93,6 +93,8 @@ test('tiles bounce on hover only when hover and motion are supported', async ({ 
 test('main navigation supports Work disclosure, favourites, CV, and Contact', async ({ page, request }) => {
   for (const prefix of ['', 'de/']) {
     await page.goto(prefix);
+    await page.evaluate(() => document.fonts.ready);
+    const homeBackground = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
     const summary = page.locator('.work-menu summary');
     await summary.focus();
     await page.keyboard.press('Enter');
@@ -120,6 +122,7 @@ test('main navigation supports Work disclosure, favourites, CV, and Contact', as
     await expect(page.locator('.work-menu')).not.toHaveAttribute('open');
     await expect(page.locator('#main h1')).toBeInViewport();
     await page.locator('.primary-nav a[href$="books/"]').click();
+    await expect(page.locator('body')).toHaveCSS('background-color', homeBackground);
     await expect(page.locator('.book-grid article')).toHaveCount(8);
     await page.getByRole('link', { name: prefix ? 'Kontakt' : 'Contact', exact: true }).click();
     await expect(page.locator('#contact')).toBeInViewport();

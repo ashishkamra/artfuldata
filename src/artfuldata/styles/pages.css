@@ -3,7 +3,6 @@ body:has(.tone-research) { background: #e7d9c6; }
 body:has(.tone-community) { background: #d5e4de; }
 body:has(.tone-making) { background: #e6d5cc; }
 body:has(.tone-courses) { background: #e4d4be; }
-body:has(.tone-books) { background: #eadfc8; }
 body:has(.tone-about) { background: #efe6d8; }
 
 .inner-page .page-intro h1,
