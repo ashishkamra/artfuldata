@@ -216,8 +216,15 @@ test('changing language at the top does not scroll back to an old fragment', asy
   ] as const) {
     await page.goto(path);
     await page.evaluate(() => document.fonts.ready);
-    await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
-    await page.getByRole('link', { name: language, exact: true }).click();
+    // The initial fragment can still be smooth-scrolling. Set the precondition
+    // and activate in one browser task so a frame cannot move us away from zero.
+    const before = await page.getByRole('link', { name: language, exact: true }).evaluate(link => {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      const y = scrollY;
+      (link as HTMLAnchorElement).click();
+      return y;
+    });
+    expect(before).toBe(0);
     await expect(page).toHaveURL(destination);
     await expect(page.locator('html')).not.toHaveAttribute('data-language-position');
     const positions = await page.evaluate(async () => {
@@ -228,7 +235,7 @@ test('changing language at the top does not scroll back to an old fragment', asy
       }
       return positions;
     });
-    expect(positions.every(position => position === 0)).toBe(true);
+    expect(positions).toEqual(Array(30).fill(0));
   }
 });
 
