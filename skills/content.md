@@ -35,7 +35,14 @@ Homepage category tiles scroll to `#visualisation`, `#research`, `#creativity`,
 
 - Garden has no notes or photographs yet. Say so.
 - Woodworking has no project photographs yet. Do not draw stand-in photos.
-- The Akshara report is not on this site. The page must say that.
+- The Akshara report is not on this site. The page must say that. The two
+  supplied photographs are stitched into one tile image.
+- The ASER document is `public/documents/aser-2006.pdf`, the 2006 rural report.
+  Do not restore the external 2005 PDF or claim she authored the 2006 report.
+- The Evolution of Values file is the October 2012 report. Its tile image is the
+  supplied Piaget illustration; keep the credit printed on the image.
+- The LSE tile image is Pinki Virani’s *Bitter Chocolate* cover, not the
+  dissertation. The Report Bee image is the *Reflections* Volume 1 cover.
 - Do not restore an “Edward Tufte” bookshelf entry unless the owner supplies a
   real title. “Books on information design” is not a title.
 - Forthcoming report files stay out of the public pages until the file exists

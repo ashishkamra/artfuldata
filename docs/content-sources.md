@@ -30,24 +30,36 @@ they do not assert unverified findings or notebook programming languages.
 
 ## Research
 
-- **ASER 2005:** the owner confirmed Monalisa contributed data analytics in 2005.
-  This is presented separately from the CV’s 2006–2007 Pratham employment.
-  Link: <https://img.asercentre.org/docs/Publications/ASER%20Reports/ASER_2005/aserfullreport2005.pdf>.
+- **ASER 2006:** the site links `public/documents/aser-2006.pdf`, *Annual Status
+  of Education Report (Rural) 2006*, published by Pratham on 5 January 2007.
+  The tile image is the cover page. Her name is not printed in the report.
+  Do not claim she authored it. The page keeps the CV’s 2006–2007 Research
+  Officer role and does not restore the external ASER 2005 PDF.
 - **Indian Social Institute:** organisation confirmed by the owner. Source:
-  `EoV_report_post pilot.pdf`, *Evolution of Values: A Pilot Study in a School in
-  Bangalore*, dated September 2012. Report details: 37 children, ages 6–15,
-  three age groups, qualitative moral-dilemma study. Findings are exploratory.
+  `Evolution of values_report_FINAL.pdf`, copied to
+  `public/documents/evolution-of-values.pdf`, *Evolution of Values among
+  Children*, by Monalisa Hota, October 2012. Report details: 37 children, ages
+  6–15, one school in Bangalore, qualitative moral-dilemma study. Findings are
+  exploratory. The tile image is the supplied Piaget illustration; the credit
+  on the image is Joshua Seong, Verywell.
 - **LSE:** source `Dissertation-for sharing_CSA_monalisa.pdf`, *Reporting Child
   Sexual Abuse in India: Lessons from Developed Nations*, September 2009.
   The synopsis reflects the original dissertation, including its historical context.
-- **Akshara and BBA:** contributions summarised from the CV; report files remain
-  forthcoming. The research page includes an Akshara summary and explicitly notes
-  that its report is not available on the site. BBA remains on About. No document
-  links or findings are invented.
+- **Akshara and BBA:** contributions summarised from the CV; the report file is
+  still not on the site, and the page says so. The tile uses the two supplied
+  photographs, stitched side by side. BBA remains on About. No document links
+  or findings are invented.
 - **Report Bee:** the research page summarises the CV’s Education Evangelist role,
   including the online teacher community and 15 published stories from 50
-  submissions. Homepage tiles link to these named research sections rather than
-  the employment entries on About.
+  submissions. The tile image is the cover of *Reflections*, Volume 1, April 2015.
+  No Report Bee PDF was supplied. Homepage tiles link to these named research
+  sections rather than the employment entries on About.
+- **LSE tile image:** the supplied picture is the cover of Pinki Virani’s
+  *Bitter Chocolate*, not the dissertation cover. The page says so. The linked
+  document remains the dissertation PDF.
+- **Kaggle images:** Cyclistic Part 1 and Part 2, and the four nutrition-diary
+  charts, are the supplied notebook figures. Descriptions do not add findings
+  that are not written on the charts.
 - **Arlington Town Survey:** source `2025 Annual Town Survey Report.pdf`, copied to
   `public/documents/2025-town-survey.pdf`. The site repeats the CV claim (survey tool,
   analysis, visualisation, report writing) and the report’s own scope: 3,268 responses,
@@ -85,8 +97,8 @@ Refugee resource coordination in 2021–2022 is described in the supplied biogra
 The Ugly Indian and My Name My Story have no source text in the repository, so they
 are not displayed. `Community.pdf` was not in the folder when this page was built.
 
-A 2006 ASER PDF is in the repo root and is not linked. The site still cites the
-2005 contribution.
+The published ASER file is `public/documents/aser-2006.pdf`. A copy may also sit
+in `incoming/` or the repo root; do not link those paths.
 
 ## Creative woodworking
 

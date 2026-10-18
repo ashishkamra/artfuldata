@@ -33,10 +33,11 @@ Tests run against a production build; run `npm run build` before `npm test`.
 - **Navigation:** Home, a keyboard-accessible Work menu, CV (PDF), Books, and Contact.
 - **Data Visualization:** three selected Tableau dashboards with local previews,
   direct Tableau links, and optional click-to-load interactive views.
-- **Data Analysis:** Kaggle notebooks, ASER 2005, the Indian Social Institute
-  pilot report, the LSE dissertation, the CEG outreach case study, the 2025
-  Arlington town survey, and CV-based summaries for Akshara Foundation and Report
-  Bee. The Akshara entry notes that its report is not available on this site.
+- **Data Analysis:** Kaggle notebooks, the ASER (Rural) 2006 report, the Indian
+  Social Institute pilot report, the LSE dissertation, the CEG outreach case study,
+  the 2025 Arlington town survey, and CV-based summaries for Akshara Foundation
+  and Report Bee. The Akshara entry notes that its report is not available on
+  this site.
 - **Community:** civic research, refugee support, and Oxfam volunteering.
 - **Woodworking:** a short introduction to self-taught furniture and storage projects.
 - **About:** professional background, education, skills, and the supplied CV.

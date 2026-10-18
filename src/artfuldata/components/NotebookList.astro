@@ -1,0 +1,21 @@
+---
+import { notebooks } from '../content/projects';
+import { germanNotebooks } from '../content/languages';
+
+const { german = false } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+<div class="project-index">
+  {notebooks.map((notebook, index) => <a href={`https://www.kaggle.com/code/lisamlh/${notebook.slug}`}>
+    <span class:list={['notebook-images', { 'notebook-gallery': notebook.images.length > 1 }]}>
+      {notebook.images.map(image => image.scroll
+        ? <span class="chart-scroll"><img src={`${base}images/${image.src}`} alt={german ? image.altDe : image.alt} width={image.width} height={image.height} loading="lazy" /></span>
+        : <img class:list={{ wide: image.wide }} src={`${base}images/${image.src}`} alt={german ? image.altDe : image.alt} width={image.width} height={image.height} loading="lazy" />)}
+    </span>
+    <span class="notebook-copy">
+      <h3>{german ? germanNotebooks[index].title : notebook.title}</h3>
+      <p>{german ? germanNotebooks[index].description : notebook.description}</p>
+      <span class="notebook-action">{german ? 'Notebook lesen' : 'Read notebook'}</span>
+    </span>
+  </a>)}
+</div>

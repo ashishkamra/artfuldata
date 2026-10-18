@@ -57,8 +57,12 @@
 .research-card-copy .card-action { margin-top: auto; padding-top: 20px; }
 .featured-research { grid-column: span 3; display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); }
 .research-card-image { min-width: 0; display: flex; align-items: center; justify-content: center; padding: 20px; background: #e8ebe1; }
-.research-card-image img { max-height: 215px; width: auto; object-fit: contain; box-shadow: 0 3px 10px #29312e0d; }
+.research-card-image img { max-height: 215px; width: auto; max-width: 100%; object-fit: contain; box-shadow: 0 3px 10px #29312e0d; }
 .research-card-image.flyer { background: #eee4d5; }
+.research-card-image.cover { background: #f3efe4; padding: 14px 16px; }
+.research-card-image.cover img { max-height: 260px; }
+.research-card-image.photo { padding: 0; background: transparent; }
+.research-card-image.photo img { width: 100%; max-height: none; height: auto; box-shadow: none; }
 .section-description { max-width: 620px; font-size: 15px; color: var(--muted); margin-top: -6px; margin-bottom: 28px; }
 .making-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
 .making-card { display: block; border: 1px solid #dfd9cc; border-radius: 90px 90px 5px 5px; background: #fffdf8; overflow: hidden; color: var(--ink); text-decoration: none; }
@@ -123,6 +127,9 @@
   .featured-research { display: flex; }
   .research-card-image { height: 190px; }
   .research-card-image img { max-height: 160px; }
+  .research-card-image.photo, .research-card-image.cover { height: auto; }
+  .research-card-image.photo img { max-height: none; }
+  .research-card-image.cover img { max-height: 220px; }
   .home-flow .reading-section { grid-template-columns: 1fr; gap: 30px; }
   .mini-books { max-width: 620px; }
   .community-section { gap: 35px; }
@@ -150,6 +157,9 @@
   .research-card-copy .eyebrow { font-size: 9px; }
   .research-card-image { height: auto; padding: 15px; }
   .research-card-image img { max-height: 125px; }
+  .research-card-image.photo { padding: 0; }
+  .research-card-image.photo img { max-height: none; }
+  .research-card-image.cover img { max-height: 200px; }
   .making-card { display: grid; grid-template-columns: 100px 1fr; border-radius: 5px; }
   .craft-art { height: 100%; min-height: 190px; }
   .making-card > div:last-child { padding: 20px; }
