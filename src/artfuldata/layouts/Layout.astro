@@ -54,17 +54,19 @@ const backUrl = url(pagePath === 'analytics/ceg' ? 'analytics/' : '');
       const workMenu = document.querySelector<HTMLDetailsElement>('.work-menu');
       const placeWorkMenu = () => {
         const dropdown = workMenu?.querySelector<HTMLElement>('.work-dropdown');
-        const summary = workMenu?.querySelector('summary');
         const header = document.querySelector('.site-header');
-        if (!workMenu?.open || !dropdown || !summary || !header) return;
-        const trigger = summary.getBoundingClientRect();
+        if (!workMenu?.open || !dropdown || !header) return;
         const headerBox = header.getBoundingClientRect();
-        const width = Math.min(320, window.innerWidth - 24);
-        const left = Math.min(Math.max(12, trigger.left), window.innerWidth - 12 - width);
-        dropdown.style.left = `${left - headerBox.left}px`;
-        dropdown.style.width = `${width}px`;
+        const anchor = workMenu.getBoundingClientRect();
+        dropdown.style.top = `${headerBox.bottom + 8 - anchor.top}px`;
+        dropdown.style.left = '0px';
+        const rect = dropdown.getBoundingClientRect();
+        if (rect.right > window.innerWidth - 12) dropdown.style.left = `${-(rect.right - (window.innerWidth - 12))}px`;
+        else if (rect.left < 12) dropdown.style.left = `${12 - rect.left}px`;
       };
       workMenu?.addEventListener('toggle', placeWorkMenu);
+      workMenu?.querySelector('summary')?.addEventListener('click', () => queueMicrotask(placeWorkMenu));
+      if (workMenu) new MutationObserver(placeWorkMenu).observe(workMenu, { attributes: true, attributeFilter: ['open'] });
       window.addEventListener('resize', placeWorkMenu);
       document.fonts.ready.then(placeWorkMenu);
       document.addEventListener('click', event => {

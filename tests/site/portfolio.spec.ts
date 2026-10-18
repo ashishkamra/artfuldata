@@ -104,19 +104,16 @@ test('main navigation supports Work disclosure, favourites, CV, and Contact', as
     await expect(page.locator('.work-menu')).not.toHaveAttribute('open');
     await expect(summary).toBeFocused();
     await summary.click();
-    const menuBox = await page.evaluate(() => {
+    await expect.poll(() => page.evaluate(() => {
       const menu = document.querySelector('.work-dropdown')!.getBoundingClientRect();
       const trigger = document.querySelector('.work-menu summary')!.getBoundingClientRect();
       const header = document.querySelector('.site-header')!.getBoundingClientRect();
-      return {
-        belowHeader: menu.top >= header.bottom - 1,
-        underTrigger: menu.left <= trigger.right && menu.right >= trigger.left,
-        onScreen: menu.left >= -1 && menu.right <= window.innerWidth + 1,
-      };
-    });
-    expect(menuBox.belowHeader).toBe(true);
-    expect(menuBox.underTrigger).toBe(true);
-    expect(menuBox.onScreen).toBe(true);
+      return menu.top >= header.bottom - 1
+        && menu.left <= trigger.right + 1
+        && menu.right >= trigger.left - 1
+        && menu.left >= -1
+        && menu.right <= window.innerWidth + 1;
+    })).toBe(true);
     await page.locator('.work-dropdown a[href$="analytics/"]').click();
     await expect(page).toHaveURL(/\/analytics\/$/);
     await expect(page.locator('.work-menu')).not.toHaveAttribute('open');
