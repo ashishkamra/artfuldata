@@ -39,14 +39,14 @@
 .home-flow .text-link { font-size: 13px; }
 .home-flow .text-link > span { margin-left: 8px; }
 .home-flow .viz-tiles { gap: 22px; }
-.home-tile { background: #fffdf8; border: 1px solid #e0dfd5; border-radius: 5px; overflow: hidden; }
-.dashboard-mat, .mat-1, .mat-2 { padding: 23px 16px; background: #e4e1d4; }
-.home-tile .tile-copy { display: flex; flex-direction: column; flex: 1; padding: 20px; }
-.home-tile .tile-copy h3 { font-size: 26px; min-height: 0; margin-block: 8px 12px; }
-.home-tile .tile-copy > p:not(.eyebrow) { font-size: 13px; line-height: 1.7; }
+.home-tile { display: flex; flex-direction: column; background: #fffdf8; border: 1px solid #e0dfd5; border-radius: 5px; overflow: hidden; }
+.home-tile img { width: 100%; height: auto; }
+.home-tile .tile-copy { display: flex; flex-direction: column; flex: 1; padding: 12px 14px 14px; background: transparent; }
+.home-tile .tile-copy h3 { font-size: 18px; min-height: 0; margin-block: 4px 6px; }
+.home-tile .tile-copy > p:not(.eyebrow) { font-size: 12px; line-height: 1.5; }
 .home-tile .tile-copy > .eyebrow { font-size: 10px; }
 .card-action { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 12px; color: var(--teal); margin-top: 24px; }
-.home-tile .card-action { margin-top: auto; padding-top: 24px; }
+.home-tile .card-action { margin-top: 8px; padding-top: 0; font-size: 12px; }
 .research-cards { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 20px; }
 .research-card { grid-column: span 2; display: flex; flex-direction: column; border: 1px solid #e0dfd5; border-radius: 5px; color: var(--ink); text-decoration: none; background: #fffdf8; overflow: hidden; }
 .research-card:hover, .making-card:hover { text-decoration: none; }
