@@ -1,0 +1,27 @@
+---
+import { favouriteBooks } from '../content/site';
+import '../styles/home.css';
+const { page, german = false } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const url = (path = '') => `${base}${german ? 'de/' : ''}${path}`;
+const t = (en: string, de: string) => german ? de : en;
+---
+{page === 'books' && <>
+  <section class="page-intro"><p class="handwritten">{t('My bookshelf', 'Mein Bücherregal')}</p><h1>{t('Favourite books', 'Lieblingsbücher')}</h1><p class="lead">{t('Some books I’ve enjoyed on creativity, history, psychology, and information design.', 'Einige Bücher, die ich gern gelesen habe, über Kreativität, Geschichte, Psychologie und Informationsdesign.')}</p></section>
+  <div class="book-grid">{favouriteBooks.map((book, index) => <article class={`book-jacket ${book.theme}`} id={`book-${index + 1}`}><span class="book-top">0{index + 1} / {t('Favourite books', 'Lieblingsbücher')}</span><h2>{book.title}</h2><span class="book-ornament" aria-hidden="true">{['✳', '▥', '◉'][index % 3]}</span>{book.note && <p>{index === 1 && german ? 'Bücher über Informationsdesign' : book.note}</p>}</article>)}</div>
+</>}
+{page === 'creativity' && <>
+  <section class="page-intro"><p class="handwritten">{t('Personal projects', 'Persönliche Projekte')}</p><h1>{t('Problem solving & creativity', 'Problemlösen & Kreativität')}</h1><p class="lead">{t('Woodworking, gardening, and reusing materials.', 'Holzarbeiten, Garten und die Wiederverwendung von Materialien.')}</p></section>
+  <div class="collection-sections">
+    <section class="collection-panel" id="woodworking"><p class="eyebrow">01 / {t('Furniture & storage', 'Möbel & Stauraum')}</p><h2>{t('Woodworking', 'Holzarbeiten')}</h2><p>{t('I taught myself woodworking and built more than eight furniture and storage solutions for my home in Massachusetts between 2018 and 2025, including cabinets, pull-out units, and bookshelves.', 'Ich habe mir Holzarbeiten selbst beigebracht und zwischen 2018 und 2025 mehr als acht Möbel und Stauraumlösungen für mein Zuhause in Massachusetts gebaut, darunter Schränke, ausziehbare Elemente und Bücherregale.')}</p><a class="text-link" href={url('woodworking/')}>{t('More about woodworking', 'Mehr über Holzarbeiten')} ↗</a></section>
+    <section class="collection-panel" id="garden"><p class="eyebrow">02 / {t('Project notes', 'Projektnotizen')}</p><h2>{t('Garden', 'Garten')}</h2><p>{t('Notes and photos will be added here.', 'Notizen und Fotos folgen.')}</p></section>
+    <section class="collection-panel" id="repurpose"><p class="eyebrow">03 / {t('Reused materials', 'Wiederverwendete Materialien')}</p><h2>{t('Repurpose', 'Wiederverwenden')}</h2><p>{t('I reused materials where possible in my woodworking projects and tested designs by building prototypes.', 'Bei meinen Holzprojekten habe ich Materialien nach Möglichkeit wiederverwendet und Entwürfe mit selbst gebauten Prototypen getestet.')}</p><a class="text-link" href={url('woodworking/')}>{t('Furniture & storage', 'Möbel & Stauraum')} ↗</a></section>
+  </div>
+</>}
+{page === 'courses' && <>
+  <section class="page-intro"><p class="handwritten">{t('Training', 'Weiterbildung')}</p><h1>{t('Courses & certificates', 'Kurse & Zertifikate')}</h1><p class="lead">{t('Courses I’ve completed in data analytics and research methodology.', 'Kurse, die ich in Datenanalyse und Forschungsmethodik abgeschlossen habe.')}</p></section>
+  <div class="collection-sections">
+    <section id="google-data-analytics" class="collection-panel"><p class="eyebrow">Google · 2022–2023</p><h2>Google Data Analytics Certificate</h2><p>{t('After a career break, I completed the Google Data Analytics Certificate and developed projects using Tableau and Python.', 'Nach einer beruflichen Pause absolvierte ich das Google Data Analytics Certificate und entwickelte Projekte mit Tableau und Python.')}</p><div class="actions"><a class="text-link" href={url('analytics/#notebooks')}>{t('View notebooks', 'Notebooks ansehen')} ↗</a><a class="text-link" href={url('visualisation/')}>{t('View dashboards', 'Dashboards ansehen')} ↗</a></div></section>
+    <section class="collection-panel"><p class="eyebrow">Tata Institute of Social Sciences · 2005–2006</p><h2>{t('Post-Graduate Certificate in Research Methodology', 'Postgraduales Zertifikat in Forschungsmethodik')}</h2><p>{t('I completed this certificate at the Tata Institute of Social Sciences in 2005–2006.', 'Dieses Zertifikat habe ich 2005–2006 am Tata Institute of Social Sciences abgeschlossen.')}</p><a class="text-link" href={url('about/#education')}>{t('Education & background', 'Ausbildung & Hintergrund')} ↗</a></section>
+  </div>
+</>}

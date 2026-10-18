@@ -1,0 +1,85 @@
+<!-- Suppress fragment scrolling before the translated page is rendered. -->
+<script is:inline>
+  try {
+    const key = 'artfuldata:language-position';
+    const pending = sessionStorage.getItem(key);
+    if (pending) {
+      sessionStorage.removeItem(key);
+      const position = JSON.parse(pending);
+      const age = Date.now() - position.time;
+      if (position.path === location.pathname + location.search && age >= 0 && age < 10000 && Number.isFinite(position.y) && Number.isFinite(position.offset)) {
+        history.replaceState(history.state, '', location.pathname + location.search);
+        document.documentElement.dataset.languagePosition = pending;
+        // Never leave the page hidden if the main script fails to load.
+        setTimeout(() => { delete document.documentElement.dataset.languagePosition; }, 3000);
+      }
+    }
+  } catch {
+    // Language links still work when session storage is unavailable.
+  }
+</script>
+
+<script>
+  const key = 'artfuldata:language-position';
+  const root = document.documentElement;
+
+  document.querySelectorAll<HTMLAnchorElement>('.language-switch a').forEach(link => {
+    link.addEventListener('click', event => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0) return;
+      if (link.hasAttribute('aria-current')) {
+        event.preventDefault();
+        return;
+      }
+
+      // Use the visible section, not a fragment left over from an earlier visit.
+      const visible = [...document.querySelectorAll<HTMLElement>('main [id], footer[id]')]
+        .map(element => ({ id: element.id, rect: element.getBoundingClientRect() }))
+        .filter(({ rect }) => rect.height > 0 && rect.bottom > 0 && rect.top < innerHeight)
+        .sort((a, b) => Math.abs(a.rect.top) - Math.abs(b.rect.top));
+      const anchor = visible[0];
+      const destination = new URL(link.href);
+      try {
+        sessionStorage.setItem(key, JSON.stringify({
+          path: destination.pathname + destination.search,
+          hash: destination.hash,
+          anchor: anchor?.id,
+          offset: anchor ? -anchor.rect.top : 0,
+          y: scrollY,
+          time: Date.now(),
+        }));
+        // Do not let the browser start a native fragment scroll on navigation.
+        event.preventDefault();
+        destination.hash = '';
+        location.assign(destination.href);
+      } catch {
+        // Fall back to a normal page change without the stale fragment.
+        event.preventDefault();
+        destination.hash = '';
+        location.assign(destination.href);
+      }
+    });
+  });
+
+  if (root.dataset.languagePosition) {
+    const loaded = document.readyState === 'complete' ? Promise.resolve() : new Promise<void>(resolve => window.addEventListener('load', () => resolve(), { once: true }));
+    const restore = () => {
+      const pending = root.dataset.languagePosition;
+      if (!pending) return;
+      try {
+        const position = JSON.parse(pending);
+        const anchor = position.anchor ? document.getElementById(position.anchor) : null;
+        const top = anchor ? anchor.getBoundingClientRect().top + scrollY + position.offset : position.y;
+        history.replaceState(history.state, '', location.pathname + location.search + position.hash);
+        window.scrollTo({ top, behavior: 'instant' });
+        document.querySelectorAll<HTMLAnchorElement>('.language-switch a').forEach(link => { link.hash = position.hash; });
+      } finally {
+        delete root.dataset.languagePosition;
+      }
+    };
+    // Wait for font metrics before restoring, but do not block on slow resources.
+    void Promise.race([
+      Promise.all([document.fonts.ready, loaded]),
+      new Promise(resolve => setTimeout(resolve, 1500)),
+    ]).then(() => requestAnimationFrame(restore));
+  }
+</script>

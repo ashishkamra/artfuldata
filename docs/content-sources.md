@@ -41,7 +41,13 @@ they do not assert unverified findings or notebook programming languages.
   Sexual Abuse in India: Lessons from Developed Nations*, September 2009.
   The synopsis reflects the original dissertation, including its historical context.
 - **Akshara and BBA:** contributions summarised from the CV; report files remain
-  forthcoming. No document links or findings are invented.
+  forthcoming. The research page includes an Akshara summary and explicitly notes
+  that its report is not available on the site. BBA remains on About. No document
+  links or findings are invented.
+- **Report Bee:** the research page summarises the CV’s Education Evangelist role,
+  including the online teacher community and 15 published stories from 50
+  submissions. Homepage tiles link to these named research sections rather than
+  the employment entries on About.
 - **Arlington Town Survey:** source `2025 Annual Town Survey Report.pdf`, copied to
   `public/documents/2025-town-survey.pdf`. The site repeats the CV claim (survey tool,
   analysis, visualisation, report writing) and the report’s own scope: 3,268 responses,
@@ -98,7 +104,8 @@ photographs to `src/artfuldata/pages/woodworking.astro` once available.
 ## Layout and tone
 
 The site uses descriptive headings, short first-person summaries, and restrained
-styling. Unfinished report entries remain in the source records but are not displayed.
+styling. Unavailable reports are not linked; CV-based contribution summaries are
+labelled separately from published reports.
 Research limitations and attribution notes remain visible.
 
 Profile references for this direction:

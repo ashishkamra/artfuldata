@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Collection from '../components/Collection.astro';
+export function getStaticPaths() {
+  return ['books', 'creativity', 'courses'].map(collection => ({ params: { collection } }));
+}
+const page = Astro.params.collection!;
+const titles: Record<string, string> = { books: 'Favourite Books', creativity: 'Problem Solving & Creativity', courses: 'Courses & Certificates' };
+---
+<Layout title={titles[page]}>
+  <Collection page={page} />
+</Layout>

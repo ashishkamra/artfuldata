@@ -28,20 +28,27 @@ Tests run against a production build; run `npm run build` before `npm test`.
 
 ## Site sections
 
-- **Home:** a short introduction, three dashboard previews, and a compact list of
-  analysis and research projects.
+- **Home:** a scrollable editorial portfolio with five work categories, dashboard
+  previews, research cards, creative interests, community work, courses, and books.
+- **Navigation:** Home, a keyboard-accessible Work menu, CV (PDF), Books, and Contact.
 - **Data Visualization:** three selected Tableau dashboards with local previews,
   direct Tableau links, and optional click-to-load interactive views.
 - **Data Analysis:** Kaggle notebooks, ASER 2005, the Indian Social Institute
   pilot report, the LSE dissertation, the CEG outreach case study, the 2025
-  Arlington town survey. Unfinished report entries are not displayed.
+  Arlington town survey, and CV-based summaries for Akshara Foundation and Report
+  Bee. The Akshara entry notes that its report is not available on this site.
 - **Community:** civic research, refugee support, and Oxfam volunteering.
 - **Woodworking:** a short introduction to self-taught furniture and storage projects.
 - **About:** professional background, education, skills, and the supplied CV.
+- **Books:** favourite books from the supplied navigation sketch.
+- **Creativity:** woodworking and repurposing, with a clearly marked garden area
+  awaiting project notes and photographs.
+- **Courses:** the Google Data Analytics and research methodology certificates.
 
 ## Update content
 
-The top-right EN/DE switch keeps the current page and section. German pages are
+The top-right EN/DE switch keeps the current page and viewing position without
+scrolling back to an old URL anchor. German pages are
 served under `/artfuldata/de/`; their copy is in `src/artfuldata/pages/de/[...page].astro`
 and project summaries are in `src/artfuldata/content/languages.ts`. Original linked
 PDFs, images, and external dashboards retain their original language.
@@ -49,16 +56,25 @@ PDFs, images, and external dashboards retain their original language.
 Inner pages include a Back link. It returns to the preceding portfolio page when
 available; direct visits fall back to Home (or Analysis for the CEG case study).
 
-Formatting is shared across languages in `src/artfuldata/styles/global.css`: the
-header and footer keep darker 2px rules; selected content groups use lighter 1px
-dividers. About and Woodworking rely on headings and spacing, while CEG keeps only
-two content dividers (at the overview and the chart analysis). Thin internal rules
-separate list entries without framing the entire list. Sections use 24px padding
-on desktop and 20px on mobile. Dashboard previews preserve their original
-proportions. The CEG section navigation is shared by both languages in
-`src/artfuldata/components/CaseNavigation.astro`.
+The shared design uses Cormorant Garamond headings, DM Sans body text, and Caveat
+handwritten accents on a warm paper palette. Shared navigation and detail-page
+styles live in `src/artfuldata/styles/global.css`; homepage cards, illustrations,
+and bookshelf styles live in `styles/home.css`. Both languages use the shared
+`components/Home.astro` and `components/Collection.astro` components. Dashboard
+previews preserve their original proportions. Existing case studies retain their
+selective dividers and chart navigation.
+
+The homepage work directory uses a darker background and larger links. Each
+section has its own background colour. Tiles bounce once on hover; the animation
+is disabled for touch devices and visitors who prefer reduced motion. Language
+scroll restoration is handled by `components/LanguagePosition.astro`.
+
+`tests/site/navigation-targets.spec.ts` clicks through the homepage categories,
+project tiles, Work menu, and research navigation in both languages. It checks
+the expected destination heading is in view, not only that the URL exists.
 
 - Tableau, Kaggle, and forthcoming report records: `src/artfuldata/content/projects.ts`.
+- Work categories and favourite books: `src/artfuldata/content/site.ts`.
 - Town survey PDF: `public/documents/2025-town-survey.pdf`.
 - Page narratives: `src/artfuldata/pages/`.
 - Shared design: `src/artfuldata/styles/global.css` and `layouts/Layout.astro`.
