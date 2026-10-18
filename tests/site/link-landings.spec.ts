@@ -49,7 +49,7 @@ test.describe('link landings', () => {
           const heading = target.getByRole('heading');
           await expect(await heading.count() ? heading.first() : target).toBeInViewport();
           if (destination.hash === '#contact') {
-            await expect.poll(() => page.locator('#contact').evaluate(element => element.getBoundingClientRect().top)).toBeLessThan(24);
+            await expect.poll(() => page.locator('#contact').evaluate(element => Math.abs(element.getBoundingClientRect().top - document.querySelector('.site-header')!.getBoundingClientRect().bottom))).toBeLessThan(24);
           }
           const frame = await page.evaluate(() => {
             const header = document.querySelector('.site-header')!.getBoundingClientRect();
