@@ -128,7 +128,7 @@ test('main navigation supports Work disclosure, favourites, CV, and Contact', as
     await expect(page.locator('body')).toHaveCSS('background-color', homeBackground);
     await expect(page.locator('.book-grid article')).toHaveCount(8);
     await page.getByRole('link', { name: prefix ? 'Kontakt' : 'Contact', exact: true }).click();
-    await expect.poll(() => page.locator('#contact').evaluate(element => element.getBoundingClientRect().top)).toBeLessThan(24);
+    await expect.poll(() => page.locator('#contact').evaluate(element => Math.abs(element.getBoundingClientRect().top - document.querySelector('.site-header')!.getBoundingClientRect().bottom))).toBeLessThan(24);
     await expect(page.locator('.primary-nav a[href$=".pdf"]')).toHaveAttribute('target', '_blank');
     const cv = await request.get((await page.locator('.primary-nav a[href$=".pdf"]').getAttribute('href'))!);
     expect(cv.headers()['content-type']).toContain('application/pdf');

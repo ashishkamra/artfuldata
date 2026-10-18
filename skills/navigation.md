@@ -25,8 +25,8 @@ the wrong place.
 - Homepage category tiles scroll to the matching homepage section.
 - Work menu items open the section pages, not the homepage teasers.
 - Contact (`#contact`) must show the Contact heading at the top of the viewport,
-  not the previous section. The footer is at least `100vh` and uses a negative
-  `scroll-margin-top` to cancel the page scroll padding.
+  below the pinned header, not the previous section. The footer is at least
+  `100vh` and uses a negative `scroll-margin-top` to cancel the extra page gap.
 - Other in-page targets use `scroll-margin-top: 28px`.
 - Back link uses the real previous portfolio page when there is one. Direct
   entry falls back to Home, or Analysis for the CEG case study.

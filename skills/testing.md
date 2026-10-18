@@ -36,7 +36,7 @@ headless-shell executable is not available here.
 - Click the control. Do not only request the URL, unless the check is a file
   download.
 - Assert the destination heading is in the viewport. For Contact, its top must
-  be within 24px of the viewport top.
+   be within 24px of the pinned header’s bottom edge.
 - Cover English and German when the copy or route differs.
 - `npm run check` typechecks these files. An `a[href]` element from
   `evaluateAll` is an `Element`, not an `HTMLAnchorElement`, until you cast it.

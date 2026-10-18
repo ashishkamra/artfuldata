@@ -22,7 +22,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: var(--space-3); }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-height, 90px) + var(--space-3)); }
 main [id] { scroll-margin-top: 28px; }
 html[data-language-position] body { visibility: hidden; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.65; }
@@ -42,7 +42,7 @@ small, .small, .project-category { font-size: 14px; color: var(--muted); }
 .lead { font-size: 18px; line-height: 1.65; color: var(--muted); max-width: 680px; }
 .site-header, main, footer { width: min(1080px, calc(100% - 96px)); margin-inline: auto; }
 
-.site-header { --menu-offset: calc(var(--space-3) + 10px); position: relative; z-index: 8; display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); padding-block: var(--space-3); border-bottom: 2px solid var(--section-line); }
+.site-header { --menu-offset: calc(var(--space-3) + 10px); position: sticky; top: 0; z-index: 8; background: var(--paper); display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); padding-block: var(--space-3); border-bottom: 2px solid var(--section-line); }
 .brand { color: var(--ink); text-decoration: none; font-family: var(--serif); font-size: 26px; font-weight: 600; white-space: nowrap; }
 .site-header nav { display: flex; gap: var(--space-3); }
 .site-header nav a { color: var(--muted); text-decoration: none; font-size: 15px; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding-inline: 6px; }

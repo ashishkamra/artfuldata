@@ -51,6 +51,12 @@ const backUrl = url(pagePath === 'analytics/ceg' ? 'analytics/' : '');
     <main id="main" class:list={{ 'section-dividers': pagePath === 'analytics', 'case-study': pagePath === 'analytics/ceg', 'inner-page': Boolean(pagePath), [`tone-${pageTone}`]: pageTone }}>{pagePath && <a class="back-link" href={backUrl} data-base={base} aria-label={german ? 'Zurück zur vorherigen Seite' : 'Back to previous page'}><span aria-hidden="true">←</span> {german ? 'Zurück' : 'Back'}</a>}<slot /></main>
     <footer id="contact"><div><h2 class="footer-greeting">{german ? 'Kontakt' : 'Contact'}</h2><a href="mailto:monalisa.hota@gmail.com">monalisa.hota@gmail.com <span aria-hidden="true">↗</span></a><small>{german ? 'Düsseldorf, Deutschland' : 'Düsseldorf, Germany'}</small>{german && <small>Verlinkte Dokumente und Dashboards bleiben in ihrer Originalsprache.</small>}</div><div class="footer-links"><a href={url('about/')}>{german ? 'Über mich' : 'About me'}</a><a href="https://www.linkedin.com/in/youdontfoolme/">LinkedIn</a><a href="https://public.tableau.com/app/profile/lisa.hota/vizzes">Tableau</a><a href="https://www.kaggle.com/lisamlh/code">Kaggle</a></div></footer>
     <script>
+      const header = document.querySelector<HTMLElement>('.site-header');
+      if (header) {
+        const updateHeaderHeight = () => document.documentElement.style.setProperty('--header-height', `${header.getBoundingClientRect().height}px`);
+        updateHeaderHeight();
+        new ResizeObserver(updateHeaderHeight).observe(header);
+      }
       document.querySelectorAll<HTMLAnchorElement>('a[href$=".pdf"]').forEach(link => {
         link.target = '_blank';
         link.rel = 'noopener noreferrer';
