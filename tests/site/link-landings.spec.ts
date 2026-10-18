@@ -16,14 +16,17 @@ test.describe('link landings', () => {
     for (const seed of seeds) {
       await page.goto(seed);
       await page.evaluate(() => document.fonts.ready);
-      const links = await page.locator('a[href]').evaluateAll(anchors => anchors.map(anchor => ({
+      const links = await page.locator('a[href]').evaluateAll(anchors => anchors.map(element => {
+        const anchor = element as HTMLAnchorElement;
+        return {
         href: anchor.getAttribute('href') ?? '',
         pdf: (anchor.getAttribute('href') ?? '').endsWith('.pdf'),
         external: anchor.host !== location.host,
         chart: anchor.classList.contains('chart-zoom'),
         skip: anchor.classList.contains('skip-link'),
         menu: !!anchor.closest('.work-dropdown'),
-      })));
+      };
+      }));
 
       for (const link of links) {
         if (!link.href || link.href.startsWith('mailto:') || link.external || link.chart || link.skip) continue;
