@@ -34,8 +34,8 @@ const research = [
   </section>
 
   <div id="work" class="work-directory" aria-labelledby="work-title">
-    <h2 id="work-title">{t('Work & interests', 'Arbeit & Interessen')} <span aria-hidden="true">↘</span></h2>
-    <nav class="work-categories" aria-label={t('Work categories', 'Arbeitsbereiche')}>{workCategories.map((category, index) => <a href={`#${category.id}`}><span class="category-number">0{index + 1}</span><span>{german ? category.de : category.en}</span><span class="category-arrow" aria-hidden="true">↓</span></a>)}</nav>
+    <h2 id="work-title">{t('Work & ', 'Arbeit & ')}<em>{t('interests', 'Interessen')}</em> <span aria-hidden="true">↘</span></h2>
+    <nav class="work-categories" aria-label={t('Work categories', 'Arbeitsbereiche')}>{workCategories.map((category, index) => <a class={`category-${category.id}`} href={`#${category.id}`}><span class="category-number">0{index + 1}</span><span>{german ? category.de : category.en}</span><span class="category-arrow" aria-hidden="true">↓</span></a>)}</nav>
   </div>
 
   <section id="visualisation" class="flow-section home-work">

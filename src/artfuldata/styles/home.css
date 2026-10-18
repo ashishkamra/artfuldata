@@ -11,12 +11,18 @@
 .portrait-note { margin: 0; padding: 13px; background: #fffdf8; box-shadow: 2px 6px 20px #29312e12; transform: rotate(4deg); border: 1px solid #e6dfd1; }
 .portrait-note img { aspect-ratio: 1; object-fit: cover; }
 .collage-spark { position: absolute; z-index: 2; right: 18px; bottom: 22px; font-family: Georgia, serif; font-size: 42px; line-height: 1; color: var(--rust); transform: rotate(12deg); pointer-events: none; }
-.work-directory { padding: 32px 28px; margin: 0 -28px 24px; background: #1c4b46; border-radius: 10px; scroll-margin-top: 24px; }
-.home-flow .work-directory h2 { color: #fffdf8; font-size: clamp(40px, 4.2vw, 54px); margin-bottom: 26px; }
+.work-directory { padding: 8px 0 24px; background: transparent; scroll-margin-top: 24px; }
+.home-flow .work-directory h2 { color: #1a1a1a; font-size: clamp(40px, 4.2vw, 54px); margin-bottom: 26px; }
+.home-flow .work-directory h2 em { color: #c23b2e; font-style: italic; font-weight: 500; }
 .work-directory h2 > span { font-family: var(--hand); font-size: 36px; margin-left: 12px; }
 .work-categories { display: grid; grid-template-columns: 1.05fr 1.15fr 1.35fr 1.3fr .65fr; gap: 12px; }
-.work-categories a { position: relative; display: flex; flex-wrap: wrap; align-content: start; align-items: baseline; gap: 9px; padding: 18px 16px; min-height: 150px; min-width: 0; color: var(--ink); background: #fffdf8; border: 1px solid #e0dfd5; border-radius: 5px; font-size: 18px; font-weight: 500; line-height: 1.5; text-decoration: none; }
-.work-categories a:hover { background: #f3efe4; }
+.work-categories a { position: relative; display: flex; flex-wrap: wrap; align-content: start; align-items: baseline; gap: 9px; padding: 18px 16px; min-height: 150px; min-width: 0; color: var(--ink); border: 1px solid #e0dfd5; border-radius: 5px; font-size: 18px; font-weight: 500; line-height: 1.5; text-decoration: none; }
+.category-visualisation { background: #e9eee2; }
+.category-research { background: #f0e5d4; }
+.category-creativity { background: #eee0d9; }
+.category-community { background: #e0ece8; }
+.category-courses { background: #e4d4be; }
+.work-categories a:hover { filter: brightness(.97); }
 .category-number { flex-basis: 100%; font-family: var(--hand); font-size: 28px; color: var(--rust); }
 .work-categories a > span:nth-child(2) { flex: 1 0 100%; min-width: 0; hyphens: manual; overflow-wrap: normal; }
 .category-arrow { position: absolute; top: 24px; right: 16px; color: var(--rust); }
@@ -127,7 +133,7 @@
   .home-hero .lead { font-size: 15px; }
   .hero-collage { width: 240px; margin: 20px auto 0; }
   .collage-spark { right: 10px; bottom: 14px; font-size: 34px; }
-  .work-directory { padding: 26px 12px; margin-inline: -12px; }
+  .work-directory { padding: 8px 0 18px; }
   .home-flow .work-directory h2 { font-size: 40px; }
   .work-categories { grid-template-columns: 1fr 1fr; }
   .work-categories a { padding: 16px 12px; min-height: 112px; font-size: 17px; }

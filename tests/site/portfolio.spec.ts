@@ -67,10 +67,16 @@ test('homepage has an unlabelled portrait, a prominent work directory, and separ
     expect(headingSize).toBeGreaterThanOrEqual(40);
     const categorySizes = await page.locator('.work-categories a').evaluateAll(links => links.map(link => parseFloat(getComputedStyle(link).fontSize)));
     expect(categorySizes.every(size => size >= 17)).toBe(true);
-    const backgrounds = await page.locator('.work-directory, .home-flow > .flow-section').evaluateAll(elements => elements.map(element => getComputedStyle(element).backgroundColor));
-    expect(backgrounds).toHaveLength(7);
-    expect(new Set(backgrounds).size).toBe(7);
-    expect(backgrounds).not.toContain('rgba(0, 0, 0, 0)');
+    await expect(page.locator('.work-directory')).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+    const title = await page.locator('#work-title').evaluate(element => {
+      const emphasis = element.querySelector('em');
+      return { text: getComputedStyle(element).color, interest: emphasis ? getComputedStyle(emphasis).color : '' };
+    });
+    expect(title.text).toBe('rgb(26, 26, 26)');
+    expect(title.interest).toBe('rgb(194, 59, 46)');
+    const tileColors = await page.locator('.work-categories a').evaluateAll(links => links.map(link => getComputedStyle(link).backgroundColor));
+    const sectionColors = await page.locator('#visualisation, #research, #creativity, #community, #courses').evaluateAll(sections => sections.map(section => getComputedStyle(section).backgroundColor));
+    expect(tileColors).toEqual(sectionColors);
   }
 });
 
