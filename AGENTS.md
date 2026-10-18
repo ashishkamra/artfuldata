@@ -1,19 +1,74 @@
-# Repository Guidelines
+# Artfuldata agent guide
 
-## Project Structure & Module Organization
-This repository currently holds only top-level docs (`README.md`, `LICENSE`). Place all production code under `src/artfuldata/` and keep modules cohesive by domain (e.g., `src/artfuldata/ingest`, `src/artfuldata/transform`). Store reusable notebooks under `notebooks/` with a short preface explaining their intent; export any datasets or fixtures to `data/raw/` or `data/processed/` as appropriate. Tests live in `tests/` and mirror the package layout. Static assets such as diagrams or reference CSV schemas go in `assets/` to keep `src/` focused on executable code.
+This is Monalisa Hota’s bilingual portfolio, not a Python data pipeline. The old
+venv/pytest/ruff instructions do not apply. Production code lives in
+`src/artfuldata/`. Astro’s `srcDir` points there.
 
-## Build, Test, and Development Commands
-- `python3 -m venv .venv && source .venv/bin/activate` – create an isolated environment before installing dependencies.
-- `pip install -r requirements.txt` – install runtime and development packages; pin versions to keep the data pipelines reproducible.
-- `pytest` – run the default test suite; use `pytest -k smoke` for quick validation prior to pushing.
-- `ruff check src tests` and `black src tests` – lint and format Python sources; run both before opening a PR.
+Live site: <https://artfuldata.vercel.app/>. Local and CI tests still use the
+`/artfuldata` base. Vercel sets `VERCEL=1` and serves the site from `/`.
 
-## Coding Style & Naming Conventions
-Target Python 3.11. Use `black` defaults (88 char width) and `ruff` to enforce imports and docstring conventions. Name modules and packages with snake_case; reserve PascalCase for classes and SCREAMING_SNAKE_CASE for constants. Keep notebooks lightweight and export reusable code into modules; annotate key functions with type hints to help reviewers orient quickly.
+## What to read first
 
-## Testing Guidelines
-Write tests with `pytest` and organize them by feature (`tests/ingest/test_sources.py`). Prefer descriptive test names such as `test_fetch_artwork_returns_expected_columns`. Add fixtures for sample datasets instead of committing large files; use factories in `tests/fixtures/` for repeated setups. Maintain ≥80% coverage on new modules and document any intentional gaps in the PR description.
+- `README.md` for commands and section map. A few design sentences there are
+  older than the homepage; trust the CSS and this file when they disagree.
+- `docs/content-sources.md` before changing biography, projects, or documents.
+- `skills.md` for the repeatable procedures.
 
-## Commit & Pull Request Guidelines
-Follow Conventional Commits (`feat:`, `fix:`, `docs:`) so release notes can be generated automatically. Keep commits scoped to a single concern and include context on data sources touched. For every PR, link the tracking issue, summarize the change, note any schema or configuration updates, and attach screenshots for UI-facing outputs (e.g., dashboards). Confirm that lint, tests, and data validations were run locally before requesting review.
+## Hard rules
+
+- Write plain, factual copy. No slogans and no invented projects, findings,
+  photographs, book titles, or document links.
+- Garden notes and woodworking photographs are waiting on the owner. Mark that
+  gap. Do not fill it.
+- A homepage card title must match the heading it opens. Put the organisation
+  in the eyebrow when the destination heading is the project name.
+- Keep English and German in sync. Shared homepage and collection copy belongs
+  in `components/Home.astro` and `components/Collection.astro`. German-only page
+  bodies live in `pages/de/[...page].astro`. Book titles and original documents
+  stay in their original language.
+- Do not commit `.codegraph/`, `58611.jpg`, or `new layout.png`.
+
+## Map
+
+| Concern | Where |
+| --- | --- |
+| Homepage | `components/Home.astro`, `styles/home.css` |
+| Books, creativity, courses | `components/Collection.astro`, `content/site.ts` |
+| Navigation, language, footer | `layouts/Layout.astro`, `components/LanguagePosition.astro` |
+| Inner-page colour and cards | `styles/pages.css` |
+| Shared type, header, contact | `styles/global.css` |
+| Tableau and notebooks | `content/projects.ts`, `content/languages.ts` |
+| Work menu destinations | `content/site.ts` `path` fields |
+| Deploy | `.github/workflows/deploy.yml`, `astro.config.mjs` |
+
+## Commands
+
+```sh
+npm ci
+npm run check
+npm run build
+npx playwright install chromium
+npm test
+```
+
+`npm test` previews `dist/`. Rebuild before testing if a preview server is
+already running; Playwright reuses it outside CI and will test a stale build.
+Browser launch for ad hoc checks needs `chromium.launch({ channel: 'chromium' })`.
+
+`npm run check` typechecks the Playwright tests too. A type error there fails
+the GitHub Action before deploy. Watch the new run with
+`gh run list` and `gh run watch`; an older red run is not the current deploy.
+
+## Design currently in force
+
+- Paper `#f8f5ee` for the homepage, About, and Books. Other inner pages use the
+  section wash from the homepage band they belong to.
+- Work & Interests has no panel background. “Work &” is black (`#1a1a1a`);
+  “interests” is red (`#c23b2e`). Each category tile uses the background of the
+  section it scrolls to.
+- Visualization tiles are one card. The image is full width; the title is
+  smaller than the image. Do not put the text in a second box.
+- The portrait is not desaturated. Do not add a lilac courses wash or a second
+  green that does not match the link teal.
+- Contact is the footer heading. The footer is at least one viewport tall so a
+  click can land on Contact instead of the section above it.
