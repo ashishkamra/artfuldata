@@ -32,7 +32,7 @@ for (const prefix of ['', 'de/']) {
     test('the Work menu opens the matching section page', async ({ page, baseURL }) => {
       const pages = [
         ['visualisation/', t('Data Visualization', 'Datenvisualisierung')],
-        ['analytics/', t('Data Analysis and Research', 'Datenanalyse und Forschung')],
+        ['analytics/', t('Research & Experiments', 'Forschung & Experimente')],
         ['creativity/', t('Problem solving & creativity', 'Problemlösen & Kreativität')],
         ['community/', t('Community work', 'Engagement')],
         ['courses/', t('Courses & certificates', 'Kurse & Zertifikate')],
@@ -72,7 +72,7 @@ for (const prefix of ['', 'de/']) {
         { selector: '.hero-copy .pill-link', path: '#work', title: t('Work & interests', 'Arbeit & Interessen') },
         { selector: '.hero-copy .text-link', path: 'about/', title: t('About me', 'Über mich') },
         { selector: '#visualisation .section-heading a', path: 'visualisation/', title: t('Data Visualization', 'Datenvisualisierung') },
-        { selector: '#research .section-heading a', path: 'analytics/', title: t('Data Analysis and Research', 'Datenanalyse und Forschung') },
+        { selector: '#research .section-heading a', path: 'analytics/', title: t('Research & Experiments', 'Forschung & Experimente') },
         { selector: '#community .text-link', path: 'community/', title: t('Community work', 'Engagement') },
         { selector: '.reading-section .text-link', path: 'books/', title: t('Favourite books', 'Lieblingsbücher') },
       ];

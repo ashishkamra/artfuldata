@@ -190,10 +190,10 @@ test('dividers are selective and quieter than the shared header and footer in bo
   }
 });
 
-test('dashboard previews use their natural proportions and CV links are not duplicated', async ({ page }) => {
+test('dashboard previews keep natural proportions, the diary frame matches, and CV links are not duplicated', async ({ page }) => {
   for (const prefix of ['', 'de/']) {
     await page.goto(prefix);
-     const images = page.locator('.viz-tiles img');
+     const images = page.locator('.viz-tiles a:not([href$="#diet-diary"]) img');
      for (const image of await images.all()) {
       await image.scrollIntoViewIfNeeded();
       await expect.poll(() => image.evaluate(element => element instanceof HTMLImageElement && element.complete && element.naturalWidth > 0)).toBe(true);
@@ -204,6 +204,13 @@ test('dashboard previews use their natural proportions and CV links are not dupl
       });
       expect(proportions.displayed).toBeCloseTo(proportions.natural, 2);
     }
+    const diary = page.locator('.viz-tiles a[href$="#diet-diary"] img');
+    await diary.scrollIntoViewIfNeeded();
+    await expect(diary).toHaveCSS('object-fit', 'contain');
+    const frame = await diary.boundingBox();
+    expect(frame!.width / frame!.height).toBeCloseTo(736 / 454, 2);
+    const dashboard = await images.first().boundingBox();
+    expect(frame!.height).toBeCloseTo(dashboard!.height, 0);
     await page.goto(`${prefix}about/`);
     await expect(page.locator('#main a[href$="monalisa-hota-cv.pdf"]')).toHaveCount(1);
     await expect(page.locator('.personal-note')).toHaveCSS('max-width', 'none');
@@ -290,7 +297,7 @@ test('language switching preserves page and anchor, and navigation stays in Germ
   await page.getByRole('link', { name: 'Deutsch', exact: true }).click();
   await expect(page).toHaveURL(/\/de\/analytics\/#town-survey$/);
   await expect(page.locator('html')).toHaveAttribute('lang', 'de');
-  await expect(page.locator('#main h1')).toHaveText('Datenanalyse und Forschung');
+  await expect(page.locator('#main h1')).toHaveText('Forschung & Experimente');
   await page.locator('footer').getByRole('link', { name: 'Über mich' }).click();
   await expect(page).toHaveURL(/\/de\/about\/$/);
   await page.getByRole('link', { name: 'English', exact: true }).click();
