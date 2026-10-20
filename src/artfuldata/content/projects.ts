@@ -1,12 +1,6 @@
 export const tableauProjects = [
   {
-    title: 'Snapshot of Delays: Germany’s High Speed Trains',
-    category: 'Transport',
-    description: 'A Tableau dashboard showing delays on Germany’s high-speed trains.',
-    image: 'snapshot-delays.webp',
-    view: 'SnapshotofDelaysGermanysHighSpeedTrains/Dashboard1',
-  },
-  {
+    id: 'project-2',
     title: 'A Journey Through Delays',
     category: 'Transport',
     description: 'A flower-shaped dashboard presenting train delay data.',
@@ -14,6 +8,15 @@ export const tableauProjects = [
     view: 'AJourneyThroughDelays/Dashboard_Flower',
   },
   {
+    id: 'project-1',
+    title: 'Snapshot of Delays: Germany’s High Speed Trains',
+    category: 'Transport',
+    description: 'A Tableau dashboard showing delays on Germany’s high-speed trains.',
+    image: 'snapshot-delays.webp',
+    view: 'SnapshotofDelaysGermanysHighSpeedTrains/Dashboard1',
+  },
+  {
+    id: 'project-3',
     title: 'Shades of Trust: How Americans Trust Each Other',
     category: 'Society',
     description: 'A Tableau dashboard exploring interpersonal trust in America.',

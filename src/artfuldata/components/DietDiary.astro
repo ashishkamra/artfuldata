@@ -1,0 +1,8 @@
+---
+import NotebookList from './NotebookList.astro';
+const { german = false } = Astro.props;
+---
+<section id="diet-diary">
+  <h2>{german ? 'Ernährungstagebuch' : 'Nutrition diary'}</h2>
+  <NotebookList german={german} selection="diet" />
+</section>

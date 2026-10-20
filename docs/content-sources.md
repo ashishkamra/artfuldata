@@ -21,6 +21,12 @@ verified against Lisa Hota’s public profile on 4 October 2026:
 Descriptions are concise portfolio summaries. The homepage uses actual dashboard
 previews, without decorative illustrations.
 
+Owner clarification (19 October 2026): keep Cyclistic/Kaggle under research
+and analysis; show the nutrition diary in both research/analysis and data
+visualization. Visualization order: nutrition diary, orange flower (*A Journey
+Through Delays*), radial (*Snapshot of Delays*), then *Shades of Trust*.
+Existing Tableau anchor IDs remain unchanged.
+
 ## Kaggle
 
 All three notebooks and direct links were verified on the public profile:

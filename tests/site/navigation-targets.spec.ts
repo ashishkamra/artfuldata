@@ -52,7 +52,7 @@ for (const prefix of ['', 'de/']) {
 
     test('homepage tiles and section links reach the named project or section', async ({ page, baseURL }) => {
       const destinations: { selector: string; path: string; title?: string }[] = [
-        ...[1, 2, 3].map(index => ({ selector: `.viz-tiles > a:nth-child(${index})`, path: `visualisation/#project-${index}` })),
+        ...['diet-diary', 'project-2', 'project-1', 'project-3'].map((id, index) => ({ selector: `.viz-tiles > a:nth-child(${index + 1})`, path: `visualisation/#${id}` })),
         { selector: '.research-cards > a:nth-child(1)', path: 'analytics/#town-survey' },
         { selector: '.research-cards > a:nth-child(2)', path: 'analytics/ceg/' },
         { selector: '.research-cards > a:nth-child(3)', path: 'analytics/#aser', title: 'Annual Status of Education Report' },
@@ -61,6 +61,7 @@ for (const prefix of ['', 'de/']) {
         { selector: '.research-cards > a:nth-child(6)', path: 'analytics/#thesis', title: t('Reporting Child Sexual Abuse in India', 'Meldung von sexuellem Kindesmissbrauch in Indien') },
         { selector: '.research-cards > a:nth-child(7)', path: 'analytics/#report-bee' },
         { selector: '.research-cards > a:nth-child(8)', path: 'analytics/#notebooks' },
+        { selector: '.research-cards > a:nth-child(9)', path: 'analytics/#diet-diary' },
         { selector: '.wood-card', path: 'woodworking/' },
         { selector: '.garden-card', path: 'creativity/#garden' },
         { selector: '.repurpose-card', path: 'creativity/#repurpose' },
@@ -95,7 +96,7 @@ for (const prefix of ['', 'de/']) {
       for (const path of ['analytics/', 'analytics/ceg/']) {
         await page.goto(`${prefix}${path}`);
         const links = await page.locator('.section-nav a').evaluateAll(links => links.map(link => link.getAttribute('href')!));
-        expect(links).toHaveLength(path === 'analytics/' ? 8 : 7);
+        expect(links).toHaveLength(path === 'analytics/' ? 9 : 7);
         for (const href of links) {
           await page.locator(`.section-nav a[href="${href}"]`).click();
           await expect(page).toHaveURL(new RegExp(`${href}$`));

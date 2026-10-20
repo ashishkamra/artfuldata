@@ -1,6 +1,6 @@
 export const germanProjects = [
-  { title: 'Verspätungen im deutschen Hochgeschwindigkeitsverkehr', description: 'Ein Tableau-Dashboard zu Verspätungen deutscher Hochgeschwindigkeitszüge.', category: 'Verkehr' },
   { title: 'Eine Reise durch Verspätungen', description: 'Ein blütenförmiges Dashboard mit Daten zu Zugverspätungen.', category: 'Verkehr' },
+  { title: 'Verspätungen im deutschen Hochgeschwindigkeitsverkehr', description: 'Ein Tableau-Dashboard zu Verspätungen deutscher Hochgeschwindigkeitszüge.', category: 'Verkehr' },
   { title: 'Zwischenmenschliches Vertrauen in den USA', description: 'Ein Tableau-Dashboard zum Vertrauen zwischen Menschen in den USA.', category: 'Gesellschaft' },
 ];
 

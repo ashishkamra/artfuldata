@@ -36,8 +36,8 @@ test('homepage follows the five-category work layout with linked project collect
   await page.goto('');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Data analysis & social research');
   await expect(page.locator('.brand')).toHaveText('Monalisa Hota');
-  await expect(page.locator('.viz-tiles > a')).toHaveCount(3);
-  await expect(page.locator('.research-cards > a')).toHaveCount(8);
+  await expect(page.locator('.viz-tiles > a')).toHaveCount(4);
+  await expect(page.locator('.research-cards > a')).toHaveCount(9);
   await expect(page.locator('.making-grid > a')).toHaveCount(3);
   await expect(page.locator('.mini-books > a')).toHaveCount(3);
   await expect(page.locator('.home-flow h2')).toHaveText([
@@ -336,6 +336,6 @@ test('Tableau dashboards load only when explicitly opened', async ({ page }) => 
   await page.goto('visualisation/');
   await expect(page.locator('iframe[src]')).toHaveCount(0);
   await page.locator('.embed-panel summary').first().click();
-  await expect(page.locator('iframe').first()).toHaveAttribute('src', /SnapshotofDelaysGermanysHighSpeedTrains\/Dashboard1/);
+  await expect(page.locator('iframe').first()).toHaveAttribute('src', /AJourneyThroughDelays\/Dashboard_Flower/);
   await expect(page.locator('iframe[src]')).toHaveCount(1);
 });
