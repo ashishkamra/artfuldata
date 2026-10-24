@@ -124,6 +124,12 @@ photographs to `src/artfuldata/pages/woodworking.astro` once available.
 
 ## Layout and tone
 
+Book cover update (24 October 2026): the owner supplied the Amazon image for
+*Originals* and the MACK image for *Irrational*. Optimized local WebP copies are
+stored in `public/images/books/`; exact source URLs and dimensions are recorded
+in `content/site.ts`. These two images are not Wikipedia images and must not
+be credited as such. No additional reproduction rights are asserted.
+
 The site uses descriptive headings, short first-person summaries, and restrained
 styling. Unavailable reports are not linked; CV-based contribution summaries are
 labelled separately from published reports.
