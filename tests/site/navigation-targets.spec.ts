@@ -68,7 +68,7 @@ for (const prefix of ['', 'de/']) {
         ...['civic', 'refugee', 'oxfam'].map((id, index) => ({ selector: `.community-links > a:nth-child(${index + 1})`, path: `community/#${id}` })),
         { selector: '.course-list > a:nth-child(1)', path: 'courses/#google-data-analytics' },
         { selector: '.course-list > a:nth-child(2)', path: 'courses/#research-methodology', title: t('Post-Graduate Certificate in Research Methodology', 'Postgraduales Zertifikat in Forschungsmethodik') },
-        ...[1, 2, 3].map(index => ({ selector: `.mini-books > a:nth-child(${index})`, path: `books/#book-${index}` })),
+        ...[1, 2, 3, 11].map((id, index) => ({ selector: `.mini-books > a:nth-child(${index + 1})`, path: `books/#book-${id}` })),
         { selector: '.hero-copy .pill-link', path: '#work', title: t('Work & interests', 'Arbeit & Interessen') },
         { selector: '.hero-copy .text-link', path: 'about/', title: t('About me', 'Über mich') },
         { selector: '#visualisation .section-heading a', path: 'visualisation/', title: t('Data Visualization', 'Datenvisualisierung') },

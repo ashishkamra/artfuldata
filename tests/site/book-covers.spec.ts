@@ -25,5 +25,8 @@ for (const prefix of ['', 'de/']) {
     await expect(page.locator('.book-grid article').nth(11).locator('h2')).toHaveText('Visualize This');
     await page.goto(prefix);
     await expect(page.locator('.mini-books a').first().locator('img')).toHaveAttribute('src', /\/images\/books\/originals\.webp$/);
+    const knowledge = page.locator('.mini-books a[href$="books/#book-11"]');
+    await expect(knowledge.locator('h3')).toHaveText('Knowledge is Beautiful');
+    await expect(knowledge.locator('img')).toHaveAttribute('src', /\/images\/books\/knowledge-is-beautiful\.webp$/);
   });
 }

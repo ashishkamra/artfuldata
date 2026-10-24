@@ -39,7 +39,7 @@ test('homepage follows the five-category work layout with linked project collect
   await expect(page.locator('.viz-tiles > a')).toHaveCount(4);
   await expect(page.locator('.research-cards > a')).toHaveCount(9);
   await expect(page.locator('.making-grid > a')).toHaveCount(3);
-  await expect(page.locator('.mini-books > a')).toHaveCount(3);
+  await expect(page.locator('.mini-books > a')).toHaveCount(4);
   await expect(page.locator('.home-flow h2')).toHaveText([
     'Work & interests ↘', 'Data visualization', 'Research & experiments', 'Problem solving & creativity',
     'Community & volunteering', 'Courses & certificates', 'Favourite books',
