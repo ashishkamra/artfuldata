@@ -104,7 +104,7 @@
 .mini-books .book-jacket:nth-child(2) { min-height: 250px; transform: rotate(-3deg); }
 .book-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 35px; padding-block: 30px 50px; }
 .book-grid .book-jacket { min-height: 320px; padding: 26px; scroll-margin-top: 30px; }
-.book-grid .book-jacket h2 { font-size: 38px; }
+.book-grid .book-jacket h2 { font-size: 38px; overflow-wrap: anywhere; }
 .book-grid .book-jacket p { font-size: 14px; }
 .collection-sections { display: grid; gap: 22px; padding-block: 20px 45px; }
 .collection-panel { padding: 32px; border: 1px solid var(--line); border-radius: 5px; background: #fffdf8; }

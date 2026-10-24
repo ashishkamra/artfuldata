@@ -124,6 +124,14 @@ photographs to `src/artfuldata/pages/woodworking.astro` once available.
 
 ## Layout and tone
 
+The owner also supplied four additional books and their cover URLs on
+24 October 2026: *The Visual Display of Quantitative Information* and
+*Envisioning Information* by Edward R. Tufte (Edward Tufte’s website),
+*Knowledge is Beautiful* by David McCandless (Amazon), and *Visualize This*
+by Nathan Yau (FlowingData). They are appended to preserve existing book
+anchors. Local WebP copies and source credits follow the same pattern as the
+other owner-supplied covers; the exact URLs are recorded in `content/site.ts`.
+
 Book cover update (24 October 2026): the owner supplied the Amazon image for
 *Originals* and the MACK image for *Irrational*. Optimized local WebP copies are
 stored in `public/images/books/`; exact source URLs and dimensions are recorded
