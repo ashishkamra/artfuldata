@@ -7,6 +7,18 @@ for (const prefix of ['', 'de/']) {
     test.use({ contextOptions: { reducedMotion: 'reduce' } });
     test.describe.configure({ timeout: 90000 });
 
+    test('creativity shows only woodworking for now', async ({ page }) => {
+      await page.goto(`${prefix}creativity/`);
+      await expect(page.locator('.page-intro .lead')).toHaveText(prefix ? 'Holzprojekte für mein Zuhause.' : 'Woodworking projects for my home.');
+      await expect(page.locator('.collection-panel')).toHaveCount(1);
+      await expect(page.locator('#woodworking h2')).toHaveText(prefix ? 'Holzarbeiten' : 'Woodworking');
+      await expect(page.locator('#garden, #repurpose')).toHaveCount(0);
+      await expect(page.locator('.woodworking-card')).toHaveCount(3);
+      await page.locator('#woodworking .section-heading > a').click();
+      await expect(page.getByRole('heading', { level: 1 })).toHaveText(prefix ? 'Holzarbeiten' : 'Woodworking');
+      await expect(page.getByRole('heading', { level: 1 })).toBeInViewport();
+    });
+
     test('selected covers open their matching curated galleries', async ({ page }) => {
       const covers = ['20240521_133300.jpg', '2024-11-28 17.18.15.jpg', '2023-09-28 09.08.28.jpg'];
       for (const [index, project] of featuredWoodworking.entries()) {

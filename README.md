@@ -43,8 +43,8 @@ Tests run against a production build; run `npm run build` before `npm test`.
   photographs, plus an overview grouped by the original project folders.
 - **About:** professional background, education, skills, and the supplied CV.
 - **Books:** favourite books from the supplied navigation sketch.
-- **Creativity:** woodworking and repurposing, with a clearly marked garden area
-  awaiting project notes and photographs.
+- **Creativity:** selected woodworking projects and a link to all project galleries.
+  Garden and repurposing sections are hidden for now at the owner's request.
 - **Courses:** the Google Data Analytics and research methodology certificates.
 
 ## Update content
