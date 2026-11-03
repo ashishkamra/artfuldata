@@ -1,0 +1,66 @@
+---
+import type { WoodworkingProject } from '../content/woodworking';
+import '../styles/woodworking.css';
+interface Props { projects: WoodworkingProject[]; german?: boolean; overview?: boolean }
+const { projects, german = false, overview = false } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const language = german ? 'de' : 'en';
+---
+<div class="woodworking-galleries">
+  {projects.map((project, projectIndex) => <section class="woodworking-project" id={project.slug} aria-labelledby={`${project.slug}-title`}>
+    <div class="section-heading">
+      <div><p class="eyebrow">{String(projectIndex + 1).padStart(2, '0')} / {german ? 'Holzarbeiten' : 'Woodworking'}</p><h2 id={`${project.slug}-title`}>{overview ? <a href={`${base}${german ? 'de/' : ''}woodworking/${project.slug}/`}>{project.title[language]}</a> : (german ? 'Ausgewählte Fotos' : 'Selected photographs')}</h2></div>
+      <span class="small">{project.photos.length} {german ? 'Fotos' : 'photos'}</span>
+    </div>
+    <div class="woodworking-photo-grid">
+      {project.photos.map((photo, index) => <figure>
+        <a class="woodworking-photo" href={`${base}images/${photo.image}`} data-wood-photo data-group={project.slug} data-title={project.title[language]} data-caption={photo.caption[language]} aria-label={`${project.title[language]} — ${photo.caption[language]} (${index + 1}/${project.photos.length}). ${german ? 'Foto vergrößern' : 'Enlarge photo'}`}>
+          <img src={`${base}images/${photo.thumbnail}`} alt={`${project.title[language]} — ${photo.caption[language]}`} width={photo.thumbnailWidth} height={photo.thumbnailHeight} loading="lazy" />
+          <span class="photo-enlarge" aria-hidden="true">↗</span>
+        </a>
+        <figcaption><span>{String(index + 1).padStart(2, '0')}</span> {photo.caption[language]}</figcaption>
+      </figure>)}
+    </div>
+  </section>)}
+</div>
+<dialog class="woodworking-dialog" aria-labelledby="woodworking-dialog-title" data-language={language}>
+  <div class="woodworking-dialog-header"><h2 id="woodworking-dialog-title"></h2><button type="button" data-photo-close>{german ? 'Schließen' : 'Close'} <span aria-hidden="true">×</span></button></div>
+  <img class="woodworking-dialog-image" alt="" />
+  <div class="woodworking-dialog-controls"><button type="button" data-photo-previous aria-label={german ? 'Vorheriges Foto' : 'Previous photo'}>←</button><p aria-live="polite" data-photo-caption></p><button type="button" data-photo-next aria-label={german ? 'Nächstes Foto' : 'Next photo'}>→</button></div>
+</dialog>
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('.woodworking-dialog');
+  if (dialog) {
+    const image = dialog.querySelector<HTMLImageElement>('.woodworking-dialog-image')!;
+    const title = dialog.querySelector<HTMLElement>('#woodworking-dialog-title')!;
+    const caption = dialog.querySelector<HTMLElement>('[data-photo-caption]')!;
+    let photos: HTMLAnchorElement[] = [];
+    let current = 0;
+    const show = (index: number) => {
+      current = (index + photos.length) % photos.length;
+      const photo = photos[current];
+      image.src = photo.href;
+      image.alt = photo.querySelector('img')!.alt;
+      title.textContent = photo.dataset.title!;
+      caption.textContent = `${current + 1} / ${photos.length} — ${photo.dataset.caption}`;
+    };
+    const links = [...document.querySelectorAll<HTMLAnchorElement>('[data-wood-photo]')];
+    links.forEach(link => link.addEventListener('click', event => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0) return;
+      event.preventDefault();
+      photos = links.filter(photo => photo.dataset.group === link.dataset.group);
+      show(photos.indexOf(link));
+      dialog.showModal();
+    }));
+    dialog.querySelector('[data-photo-close]')!.addEventListener('click', () => dialog.close());
+    dialog.querySelector('[data-photo-previous]')!.addEventListener('click', () => show(current - 1));
+    dialog.querySelector('[data-photo-next]')!.addEventListener('click', () => show(current + 1));
+    dialog.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+        show(current + (event.key === 'ArrowLeft' ? -1 : 1));
+      }
+    });
+    dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+  }
+</script>

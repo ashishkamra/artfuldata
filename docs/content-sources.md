@@ -118,9 +118,29 @@ storage solutions, repurposed materials, prototyping, and iteration. Listed solu
 types are moving walls/doors, tri-fold door cabinets, pull-out units, and bookshelves.
 These are résumé-based categories, not individual project case studies.
 
-The owner’s companion woodworking website is under construction. Its URL and
-project media have not been supplied. Add selected pieces, source links, and
-photographs to `src/artfuldata/pages/woodworking.astro` once available.
+The owner supplied a shared Dropbox folder, **Woodworking Photos for Portfolio**,
+on 2 November 2026 (share ID `0keu3i5elcdra45e62aoj`). Its 24 project folders
+contain 410 images. Originals are retained locally under
+`incoming/photos/woodworking-dropbox/`, not published or committed.
+
+At the owner's request, the public galleries use a visual selection rather than
+every image: 112 photographs showing finished pieces, distinct construction stages,
+and details. Near-duplicates and redundant angles are omitted. The two-photo keyring
+project retains both images. Folder groupings are preserved, even where source
+folders overlap. Titles are normalized from the source folder names; no project
+histories, material specifications, or outcomes have been invented.
+
+The owner selected these exact homepage covers:
+- Entryway Chest of Drawers: `20240521_133300.jpg`.
+- Shoe cabinet with trifold door: `2024-11-28 17.18.15.jpg`.
+- Bookshelf_1: `2023-09-28 09.08.28.jpg`.
+
+The visual selection and source filenames are maintained in
+`scripts/prepare-woodworking.py`; `content/woodworking.json` records the published
+image dimensions and bilingual captions. EXIF orientation is applied, metadata
+is stripped, and selected photos are resized to WebP (1800px maximum edge) with
+720px thumbnails. Garden notes and photographs remain pending; garden furniture
+photographs do not fill that separate content gap.
 
 ## Layout and tone
 

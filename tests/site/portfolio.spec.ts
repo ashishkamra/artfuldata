@@ -3,6 +3,8 @@ import { mkdir } from 'node:fs/promises';
 import { join } from 'node:path';
 
 test('navigation, images, and local collateral resolve on every portfolio page', async ({ page, request, baseURL }) => {
+  // The woodworking overview now checks 112 previews and full-size links in each language.
+  test.setTimeout(120000);
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
@@ -38,7 +40,7 @@ test('homepage follows the five-category work layout with linked project collect
   await expect(page.locator('.brand')).toHaveText('Monalisa Hota');
   await expect(page.locator('.viz-tiles > a')).toHaveCount(4);
   await expect(page.locator('.research-cards > a')).toHaveCount(9);
-  await expect(page.locator('.making-grid > a')).toHaveCount(3);
+  await expect(page.locator('#creativity .woodworking-cards > a')).toHaveCount(3);
   await expect(page.locator('.mini-books > a')).toHaveCount(4);
   await expect(page.locator('.home-flow h2')).toHaveText([
     'Work & interests ↘', 'Data visualization', 'Research & experiments', 'Problem solving & creativity',
@@ -84,7 +86,7 @@ test('tiles bounce on hover only when hover and motion are supported', async ({ 
   await page.goto('');
   const hoverSupported = await page.evaluate(() => matchMedia('(hover: hover)').matches);
   await page.emulateMedia({ reducedMotion: 'no-preference' });
-  for (const selector of ['.work-categories a', '.home-tile', '.research-card', '.making-card', '.community-links a', '.course-card', '.mini-books a']) {
+  for (const selector of ['.work-categories a', '.home-tile', '.research-card', '.woodworking-card', '.community-links a', '.course-card', '.mini-books a']) {
     const tile = page.locator(selector).first();
     await tile.hover();
     await expect(tile).toHaveCSS('animation-name', hoverSupported ? 'tile-bounce' : 'none');

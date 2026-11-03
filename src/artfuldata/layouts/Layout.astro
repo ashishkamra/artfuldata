@@ -12,9 +12,10 @@ const language = german ? 'de' : 'en';
 const url = (path = '') => `${base}${german ? 'de/' : ''}${path}`;
 const englishUrl = `${base}${pagePath ? `${pagePath}/` : ''}`;
 const germanUrl = `${base}de/${pagePath ? `${pagePath}/` : ''}`;
-const workPage = ['visualisation', 'analytics', 'analytics/ceg', 'community', 'woodworking', 'creativity', 'courses'].includes(pagePath);
-const pageTone = { visualisation: 'viz', analytics: 'research', 'analytics/ceg': 'research', community: 'community', woodworking: 'making', creativity: 'making', courses: 'courses' }[pagePath];
-const backUrl = url(pagePath === 'analytics/ceg' ? 'analytics/' : '');
+const woodworkingDetail = pagePath.startsWith('woodworking/');
+const workPage = woodworkingDetail || ['visualisation', 'analytics', 'analytics/ceg', 'community', 'woodworking', 'creativity', 'courses'].includes(pagePath);
+const pageTone = woodworkingDetail ? 'making' : { visualisation: 'viz', analytics: 'research', 'analytics/ceg': 'research', community: 'community', woodworking: 'making', creativity: 'making', courses: 'courses' }[pagePath];
+const backUrl = url(woodworkingDetail ? 'woodworking/' : pagePath === 'analytics/ceg' ? 'analytics/' : '');
 ---
 <!doctype html>
 <html lang={language}>

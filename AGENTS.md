@@ -18,8 +18,9 @@ Live site: <https://artfuldata.vercel.app/>. Local and CI tests still use the
 
 - Write plain, factual copy. No slogans and no invented projects, findings,
   photographs, book titles, or document links.
-- Garden notes and woodworking photographs are waiting on the owner. Mark that
-  gap. Do not fill it.
+- Garden notes and photographs are waiting on the owner. Mark that gap. Do not
+  fill it. Woodworking photographs were supplied via Dropbox; use the curated
+  selections documented in `docs/content-sources.md`.
 - A homepage card title must match the heading it opens. Put the organisation
   in the eyebrow when the destination heading is the project name.
 - Keep English and German in sync. Shared homepage and collection copy belongs

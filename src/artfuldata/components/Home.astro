@@ -2,6 +2,7 @@
 import { tableauProjects } from '../content/projects';
 import { germanProjects } from '../content/languages';
 import { favouriteBooks, workCategories } from '../content/site';
+import WoodworkingCards from './WoodworkingCards.astro';
 import '../styles/home.css';
 const { german = false } = Astro.props;
 const base = import.meta.env.BASE_URL;
@@ -57,13 +58,9 @@ research.push(dietDiary);
   </section>
 
   <section id="creativity" class="flow-section making-section">
-    <div class="section-heading"><div><p class="eyebrow">03 / {t('Personal projects', 'Persönliche Projekte')}</p><h2>{t('Problem solving &', 'Problemlösen &')} <em>{t('creativity', 'Kreativität')}</em></h2></div></div>
+    <div class="section-heading"><div><p class="eyebrow">03 / {t('Personal projects', 'Persönliche Projekte')}</p><h2>{t('Problem solving &', 'Problemlösen &')} <em>{t('creativity', 'Kreativität')}</em></h2></div><a class="text-link" href={url('woodworking/')}>{t('All woodworking projects', 'Alle Holzprojekte')} <span aria-hidden="true">↗</span></a></div>
     <p class="section-description">{t('I taught myself woodworking and built furniture and storage for my home.', 'Ich habe mir Holzarbeiten selbst beigebracht und Möbel und Stauraumlösungen für mein Zuhause gebaut.')}</p>
-    <div class="making-grid">
-      <a class="making-card wood-card" href={url('woodworking/')}><div class="craft-art wood-art" aria-hidden="true"><span></span><span></span><span></span></div><div><p class="eyebrow">{t('Furniture & storage', 'Möbel & Stauraum')}</p><h3>{t('Woodworking', 'Holzarbeiten')}</h3><p>{t('Cabinets, pull-out units, and bookshelves.', 'Schränke, ausziehbare Elemente und Bücherregale.')}</p><span class="card-action">{t('More about woodworking', 'Mehr über Holzarbeiten')} ↗</span></div></a>
-      <a class="making-card garden-card" href={url('creativity/#garden')}><div class="craft-art garden-art" aria-hidden="true"><span>❧</span></div><div><p class="eyebrow">{t('Project notes', 'Projektnotizen')}</p><h3>{t('Garden', 'Garten')}</h3><p>{t('Notes and photos to be added.', 'Notizen und Fotos folgen.')}</p><span class="card-action">{t('Garden notes', 'Gartennotizen')} ↗</span></div></a>
-      <a class="making-card repurpose-card" href={url('creativity/#repurpose')}><div class="craft-art repurpose-art" aria-hidden="true">↻</div><div><p class="eyebrow">{t('Reused materials', 'Wiederverwendete Materialien')}</p><h3>{t('Repurpose', 'Wiederverwenden')}</h3><p>{t('Reusing materials in furniture and storage projects.', 'Materialien für Möbel und Stauraumlösungen wiederverwenden.')}</p><span class="card-action">{t('Read more', 'Mehr erfahren')} ↗</span></div></a>
-    </div>
+    <WoodworkingCards german={german} />
   </section>
 
   <section id="community" class="flow-section community-section">

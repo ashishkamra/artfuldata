@@ -22,7 +22,7 @@ test.describe('link landings', () => {
         href: anchor.getAttribute('href') ?? '',
         pdf: (anchor.getAttribute('href') ?? '').endsWith('.pdf'),
         external: anchor.host !== location.host,
-        chart: anchor.classList.contains('chart-zoom'),
+        chart: anchor.classList.contains('chart-zoom') || anchor.hasAttribute('data-wood-photo'),
         skip: anchor.classList.contains('skip-link'),
         menu: !!anchor.closest('.work-dropdown'),
       };

@@ -1,0 +1,20 @@
+---
+import { featuredWoodworking } from '../content/woodworking';
+import '../styles/woodworking.css';
+const { german = false } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const language = german ? 'de' : 'en';
+---
+<div class="woodworking-cards">
+  {featuredWoodworking.map(project => {
+    const cover = project.photos[0];
+    return <a class="woodworking-card" href={`${base}${german ? 'de/' : ''}woodworking/${project.slug}/`}>
+      <div class="woodworking-cover"><img src={`${base}images/${cover.thumbnail}`} alt={project.title[language]} width={cover.thumbnailWidth} height={cover.thumbnailHeight} loading="lazy" /></div>
+      <div class="woodworking-card-copy">
+        <p class="eyebrow">{german ? 'Holzarbeiten' : 'Woodworking'}</p>
+        <h3>{project.title[language]}</h3>
+        <span class="card-action">{german ? 'Projekt ansehen' : 'View project'} <span aria-hidden="true">↗</span></span>
+      </div>
+    </a>;
+  })}
+</div>

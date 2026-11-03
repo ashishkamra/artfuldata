@@ -118,9 +118,9 @@
   82% { translate: 0 -6px; }
   100% { translate: 0 -4px; }
 }
-.home-flow :is(.work-categories a, .home-tile, .research-card, .making-card, .community-links a, .course-card, .mini-books a) { transition: box-shadow .2s; }
+.home-flow :is(.work-categories a, .home-tile, .research-card, .making-card, .woodworking-card, .community-links a, .course-card, .mini-books a) { transition: box-shadow .2s; }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .home-flow :is(.work-categories a, .home-tile, .research-card, .making-card, .community-links a, .course-card, .mini-books a):hover { animation: tile-bounce .55s ease-out both; box-shadow: 0 10px 20px #29312e14; }
+  .home-flow :is(.work-categories a, .home-tile, .research-card, .making-card, .woodworking-card, .community-links a, .course-card, .mini-books a):hover { animation: tile-bounce .55s ease-out both; box-shadow: 0 10px 20px #29312e14; }
 }
 @media (max-width: 1000px) {
   .home-flow .home-hero { gap: 35px; }
@@ -184,5 +184,5 @@
   .home-hero .actions { gap: 18px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .home-flow :is(.work-categories a, .home-tile, .research-card, .making-card, .community-links a, .course-card, .mini-books a) { transition: none; animation: none; translate: none; }
+  .home-flow :is(.work-categories a, .home-tile, .research-card, .making-card, .woodworking-card, .community-links a, .course-card, .mini-books a) { transition: none; animation: none; translate: none; }
 }

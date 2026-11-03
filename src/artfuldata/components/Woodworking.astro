@@ -1,0 +1,23 @@
+---
+import { woodworkingProjects, type WoodworkingProject } from '../content/woodworking';
+import WoodworkingGallery from './WoodworkingGallery.astro';
+interface Props { german?: boolean; project?: WoodworkingProject }
+const { german = false, project } = Astro.props;
+const language = german ? 'de' : 'en';
+const base = import.meta.env.BASE_URL;
+const url = (path: string) => `${base}${german ? 'de/' : ''}${path}`;
+---
+<section class="page-intro">
+  <p class="handwritten">{german ? 'Möbel & Stauraum' : 'Furniture & storage'}</p>
+  <h1>{project ? project.title[language] : (german ? 'Holzarbeiten' : 'Woodworking')}</h1>
+  {project ? <>
+    <p class="lead">{german ? 'Eine Auswahl von Fotos der fertigen Arbeit, des Bauprozesses und einzelner Details.' : 'Selected photographs of the finished piece, the build, and its details.'}</p>
+    <a class="text-link woodworking-all-link" href={url('woodworking/')}>{german ? 'Alle Holzprojekte' : 'All woodworking projects'} <span aria-hidden="true">↗</span></a>
+  </> : <>
+    <p class="lead">{german ? 'Ich habe mir das Arbeiten mit Holz selbst beigebracht und Möbel und Stauraumlösungen für mein Zuhause in Massachusetts gebaut.' : 'I taught myself woodworking and built furniture and storage for my home in Massachusetts.'}</p>
+    <p>{german ? 'Ausgewählte Fotos aus jedem Projektordner: fertige Arbeiten, Bauprozesse und Details.' : 'Selected photographs from each project folder: finished pieces, work in progress, and details.'}</p>
+    <p class="small">{woodworkingProjects.length} {german ? 'Projekte · Zum Vergrößern auf ein Foto klicken.' : 'projects · Click a photo to enlarge it.'}</p>
+  </>}
+</section>
+{!project && <nav class="woodworking-index" aria-label={german ? 'Holzprojekte' : 'Woodworking projects'}>{woodworkingProjects.map(item => <a href={`#${item.slug}`}>{item.title[language]}</a>)}</nav>}
+<WoodworkingGallery projects={project ? [project] : woodworkingProjects} german={german} overview={!project} />

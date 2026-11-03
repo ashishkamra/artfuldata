@@ -62,9 +62,7 @@ for (const prefix of ['', 'de/']) {
         { selector: '.research-cards > a:nth-child(7)', path: 'analytics/#report-bee' },
         { selector: '.research-cards > a:nth-child(8)', path: 'analytics/#notebooks' },
         { selector: '.research-cards > a:nth-child(9)', path: 'analytics/#diet-diary' },
-        { selector: '.wood-card', path: 'woodworking/' },
-        { selector: '.garden-card', path: 'creativity/#garden' },
-        { selector: '.repurpose-card', path: 'creativity/#repurpose' },
+        ...['entryway-chest-of-drawers', 'shoe-cabinet-with-trifold-door', 'bookshelf-1'].map((slug, index) => ({ selector: `#creativity .woodworking-card:nth-child(${index + 1})`, path: `woodworking/${slug}/` })),
         ...['civic', 'refugee', 'oxfam'].map((id, index) => ({ selector: `.community-links > a:nth-child(${index + 1})`, path: `community/#${id}` })),
         { selector: '.course-list > a:nth-child(1)', path: 'courses/#google-data-analytics' },
         { selector: '.course-list > a:nth-child(2)', path: 'courses/#research-methodology', title: t('Post-Graduate Certificate in Research Methodology', 'Postgraduales Zertifikat in Forschungsmethodik') },
@@ -73,6 +71,7 @@ for (const prefix of ['', 'de/']) {
         { selector: '.hero-copy .text-link', path: 'about/', title: t('About me', 'Über mich') },
         { selector: '#visualisation .section-heading a', path: 'visualisation/', title: t('Data Visualization', 'Datenvisualisierung') },
         { selector: '#research .section-heading a', path: 'analytics/', title: t('Research & Experiments', 'Forschung & Experimente') },
+        { selector: '#creativity .section-heading a', path: 'woodworking/', title: t('Woodworking', 'Holzarbeiten') },
         { selector: '#community .text-link', path: 'community/', title: t('Community work', 'Engagement') },
         { selector: '.reading-section .text-link', path: 'books/', title: t('Favourite books', 'Lieblingsbücher') },
       ];

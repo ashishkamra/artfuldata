@@ -39,7 +39,8 @@ Tests run against a production build; run `npm run build` before `npm test`.
   and Report Bee. The Akshara entry notes that its report is not available on
   this site.
 - **Community:** civic research, refugee support, and Oxfam volunteering.
-- **Woodworking:** a short introduction to self-taught furniture and storage projects.
+- **Woodworking:** 24 project galleries with curated finished, process, and detail
+  photographs, plus an overview grouped by the original project folders.
 - **About:** professional background, education, skills, and the supplied CV.
 - **Books:** favourite books from the supplied navigation sketch.
 - **Creativity:** woodworking and repurposing, with a clearly marked garden area
@@ -84,6 +85,13 @@ the expected destination heading is in view, not only that the URL exists.
 - Add a future report PDF to `public/documents/`, then replace its forthcoming
   entry with a linked case-study section in `pages/analytics.astro`.
 - `docs/content-sources.md` documents sources, attribution, and editorial decisions.
+
+Woodworking selections and original filenames are recorded in
+`scripts/prepare-woodworking.py`. With Pillow installed, run
+`python scripts/prepare-woodworking.py` to regenerate the selected WebPs and
+`content/woodworking.json` from `incoming/photos/woodworking-dropbox/`.
+The original download stays local; only curated, orientation-corrected images
+and their thumbnails are published. The first photo of each project is its cover.
 
 The source CV, thesis, pilot report, and CEG files remain in their original locations.
 Optimised copies are used for the site. Tableau thumbnails were downloaded from the

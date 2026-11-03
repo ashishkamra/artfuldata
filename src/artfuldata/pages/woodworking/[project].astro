@@ -1,0 +1,12 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Woodworking from '../../components/Woodworking.astro';
+import { woodworkingProjects } from '../../content/woodworking';
+export function getStaticPaths() {
+  return woodworkingProjects.map(project => ({ params: { project: project.slug }, props: { project } }));
+}
+const { project } = Astro.props;
+---
+<Layout title={project.title.en} description={`Selected photographs of ${project.title.en}, a woodworking project by Monalisa Hota.`}>
+  <Woodworking project={project} />
+</Layout>

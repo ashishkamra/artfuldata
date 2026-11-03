@@ -34,7 +34,8 @@ Homepage category tiles scroll to `#visualisation`, `#research`, `#creativity`,
 ## Known gaps
 
 - Garden has no notes or photographs yet. Say so.
-- Woodworking has no project photographs yet. Do not draw stand-in photos.
+- Woodworking uses owner-supplied Dropbox photos. Preserve the curated selection
+  and the three specified covers in `scripts/prepare-woodworking.py`.
 - The Akshara report is not on this site. The page must say that. The two
   supplied photographs are stitched into one tile image.
 - The ASER document is `public/documents/aser-2006.pdf`, the 2006 rural report.
